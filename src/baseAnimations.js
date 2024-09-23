@@ -47,7 +47,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: { ...theme("scale"), DEFAULT: "50%" },
+      values: theme("motionScale"),
     }
   );
 
@@ -106,7 +106,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: { ...theme("rotate"), DEFAULT: "12deg" },
+      values: theme("motionRotate"),
       supportsNegativeValues: true,
     }
   );
@@ -131,7 +131,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: theme("blur"),
+      values: theme("motionBlur"),
     }
   );
 
@@ -151,7 +151,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: theme("grayscale"),
+      values: theme("motionGrayscale"),
     }
   );
 
@@ -175,7 +175,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: { ...theme("opacity"), DEFAULT: "0", 0: "0.001" },
+      values: theme("motionOpacity"),
     }
   );
 
@@ -199,7 +199,7 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: flattenColorPalette(theme("colors")),
+      values: theme("motionBackgroundColor"),
       type: "color",
     }
   );
@@ -224,13 +224,15 @@ export function addBaseAnimations(matchUtilities, theme) {
       }),
     },
     {
-      values: flattenColorPalette(theme("colors")),
+      values: theme("motionTextColor"),
       type: "color",
     }
   );
 }
 
+/** @type {import('tailwindcss/types/config').CustomThemeConfig} */
 export const baseAnimationsTheme = {
+  motionScale: (theme) => ({ ...theme("scale"), DEFAULT: "50%" }),
   motionTranslate: {
     0: "0%",
     25: "25%",
@@ -240,4 +242,10 @@ export const baseAnimationsTheme = {
     150: "150%",
     DEFAULT: "25%",
   },
+  motionRotate: (theme) => ({ ...theme("rotate"), DEFAULT: "12deg" }),
+  motionBlur: (theme) => theme("blur"),
+  motionGrayscale: (theme) => theme("grayscale"),
+  motionOpacity: (theme) => ({ ...theme("opacity"), DEFAULT: "0", 0: "0.001" }),
+  motionBackgroundColor: (theme) => flattenColorPalette(theme("colors")),
+  motionTextColor: (theme) => flattenColorPalette(theme("colors")),
 };
