@@ -1,3 +1,12 @@
+// Define spring types and their corresponding perceptual duration multipliers
+export const springPerceptualMultipliers = {
+  "var(--motion-spring-smooth)": "1.66",
+  "var(--motion-spring-snappy)": "1.66",
+  "var(--motion-spring-bouncy)": "1.66",
+  "var(--motion-spring-bouncier)": "2.035",
+  "var(--motion-spring-bounciest)": "5.285",
+};
+
 /**
  * @param {import('tailwindcss/types/config').PluginAPI['matchUtilities']} matchUtilities
  * @param {import('tailwindcss/types/config').PluginAPI['theme']} theme
@@ -92,18 +101,9 @@ export function addModifiers(matchUtilities, theme) {
   matchUtilities(
     {
       "motion-ease": (value, { modifier }) => {
-        // Define spring types and their corresponding perceptual duration multipliers
-        const springPerceptualMultiplier = {
-          "var(--motion-spring-smooth)": 1.66,
-          "var(--motion-spring-snappy)": 1.66,
-          "var(--motion-spring-bouncy)": 1.66,
-          "var(--motion-spring-bouncier)": 2.035,
-          "var(--motion-spring-bounciest)": 5.285,
-        };
-
         // if the ease isn't a spring, the multiplier doesn't change anything
         const perceptualDurationMultiplier =
-          springPerceptualMultiplier[value] || 1;
+          springPerceptualMultipliers[value] || 1;
 
         const isSpringWithBounce = [
           "var(--motion-spring-bouncy)",

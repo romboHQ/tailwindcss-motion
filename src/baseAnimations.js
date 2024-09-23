@@ -1,15 +1,41 @@
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 
+// animation strings
+export const scaleInAnimation =
+  "motion-scale-in calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+export const scaleOutAnimation =
+  "motion-scale-out calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+export const translateInAnimation =
+  "motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+export const translateOutAnimation =
+  "motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+export const rotateInAnimation =
+  "motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+export const rotateOutAnimation =
+  "motion-rotate-out calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+export const filterInAnimation =
+  "motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
+export const filterOutAnimation =
+  "motion-filter-out calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
+export const opacityInAnimation =
+  "motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+export const opacityOutAnimation =
+  "motion-opacity-out calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+export const backgroundColorInAnimation =
+  "motion-background-color-in calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+export const backgroundColorOutAnimation =
+  "motion-background-color-out calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+export const textColorInAnimation =
+  "motion-text-color-in calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+export const textColorOutAnimation =
+  "motion-text-color-out calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+
 /**
  * @param {import('tailwindcss/types/config').PluginAPI['matchUtilities']} matchUtilities
  * @param {import('tailwindcss/types/config').PluginAPI['theme']} theme
  * */
 export function addBaseAnimations(matchUtilities, theme) {
   // scale
-  const scaleInAnimation =
-    "motion-scale-in calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
-  const scaleOutAnimation =
-    "motion-scale-out calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
   matchUtilities(
     {
       "motion-scale-in": (value) => ({
@@ -52,10 +78,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // translate
-  const translateInAnimation =
-    "motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
-  const translateOutAnimation =
-    "motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
   matchUtilities(
     {
       "motion-translate-x-in": (value) => ({
@@ -87,10 +109,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // rotate
-  const rotateInAnimation =
-    "motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
-  const rotateOutAnimation =
-    "motion-rotate-out calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
   matchUtilities(
     {
       "motion-rotate-in": (value) => ({
@@ -112,10 +130,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // blur
-  const filterInAnimation =
-    "motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
-  const filterOutAnimation =
-    "motion-filter-out calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
   matchUtilities(
     {
       "motion-blur-in": (value) => ({
@@ -156,10 +170,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // opacity
-  const opacityInAnimation =
-    "motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
-  const opacityOutAnimation =
-    "motion-opacity-out calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
   matchUtilities(
     {
       "motion-opacity-in": (value) => ({
@@ -180,10 +190,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // background-color
-  const backgroundColorInAnimation =
-    "motion-background-color-in calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
-  const backgroundColorOutAnimation =
-    "motion-background-color-out calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
   matchUtilities(
     {
       "motion-bg-in": (value) => ({
@@ -205,10 +211,6 @@ export function addBaseAnimations(matchUtilities, theme) {
   );
 
   // text-color
-  const textColorInAnimation =
-    "motion-text-color-in calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
-  const textColorOutAnimation =
-    "motion-text-color-out calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
   matchUtilities(
     {
       "motion-text-in": (value) => ({
