@@ -364,7 +364,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-duration": "300ms",
       "--motion-origin-rotate": "15deg",
       "--motion-origin-opacity": 0,
-      "--motion-rotate-timing": "var(--motion-bounciest)",
+      "--motion-rotate-timing": "var(--motion-spring-bounciest)",
       "--motion-rotate-perceptual-duration-multiplier":
         springPerceptualMultipliers["var(--motion-spring-bounciest)"],
       "--motion-opacity-in-animation": opacityInAnimation,
