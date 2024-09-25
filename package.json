@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-motion",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "keywords": [],
   "author": "Rombo (https://rombo.co/)",
@@ -9,6 +9,7 @@
   "bugs": {
     "url": "https://github.com/romboHQ/tailwindcss-motion/issues"
   },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romboHQ/tailwindcss-motion.git"

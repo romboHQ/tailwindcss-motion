@@ -302,7 +302,8 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-bounce": {
       "--motion-duration": "300ms",
       "--motion-timing": "var(--motion-bounce)",
-      "--motion-perceptual-duration-multiplier": "2",
+      "--motion-perceptual-duration-multiplier":
+        springPerceptualMultipliers["var(--motion-bounce)"],
       "--motion-opacity-timing": "var(--motion-spring-smooth)",
       "--motion-opacity-perceptual-duration-multiplier":
         springPerceptualMultipliers["var(--motion-spring-smooth)"],
@@ -413,7 +414,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       zIndex: "1",
       margin: "0",
       animation:
-        "RomboConfettiPop var(--motion-duration) var(--motion-timing) both !important",
+        "RomboConfettiPop var(--motion-duration) var(--motion-timing)  both !important",
 
       "@keyframes RomboConfettiPop": {
         "0%": {
@@ -443,7 +444,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       },
       "&:after": {
         display: "block",
-        animationDuration: "900ms",
+        animationDuration: "var(--motion-duration)",
         animationTimingFunction: "var(--motion-timing)",
         animationIterationCount: "1",
         animationDirection: "normal",
@@ -457,7 +458,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         height: "100%",
         left: "-20%",
         top: "100%",
-        transition: "all var(--motion-timing) 900ms",
+        transition: "all var(--motion-timing) var(--motion-duration)",
         backgroundRepeat: "no-repeat",
         backgroundImage:
           "radial-gradient(circle, #a2dd60 20%, transparent 20%),radial-gradient(circle, transparent 20%, #ee65a9 20%, transparent 30%),radial-gradient(circle, #6092dd 20%, transparent 20%),radial-gradient(circle, #f3c548 20%, transparent 20%),radial-gradient(circle, transparent 10%, #46ec99 15%, transparent 20%),radial-gradient(circle, #f03e47 20%, transparent 20%),radial-gradient(circle, #7b4df7 20%, transparent 20%),radial-gradient(circle, #3ff1bc 20%, transparent 20%)",
@@ -467,7 +468,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       },
       "&:before": {
         display: "block",
-        animationDuration: "900ms",
+        animationDuration: "var(--motion-duration)",
         animationTimingFunction: "var(--motion-timing)",
         animationIterationCount: "1",
         animationDirection: "normal",
@@ -480,7 +481,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         height: "100%",
         left: "-5%",
         backgroundRepeat: "no-repeat",
-        transition: "all var(--motion-timing) 900ms",
+        transition: "all var(--motion-timing) var(--motion-duration)",
         zIndex: "-1",
         top: "-90%",
         backgroundImage:

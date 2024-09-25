@@ -5,6 +5,7 @@ export const springPerceptualMultipliers = {
   "var(--motion-spring-bouncy)": "1.66",
   "var(--motion-spring-bouncier)": "2.035",
   "var(--motion-spring-bounciest)": "5.285",
+  "var(--motion-bounce)": "2",
 };
 
 /**
@@ -201,6 +202,8 @@ export const modifiersTheme = {
     "spring-bouncy": "var(--motion-spring-bouncy)",
     "spring-bouncier": "var(--motion-spring-bouncier)",
     "spring-bounciest": "var(--motion-spring-bounciest)",
+
+    bounce: "var(--motion-bounce)",
 
     "in-quad": "cubic-bezier(.55, .085, .68, .53)",
     "in-cubic": "cubic-bezier(.550, .055, .675, .19)",
