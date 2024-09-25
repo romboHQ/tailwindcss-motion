@@ -274,13 +274,10 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           ...directions[direction],
-          "--motion-timing": "var(--motion-spring-bouncier)",
-          "--motion-perceptual-duration-multiplier":
+          "--motion-translate-timing": "var(--motion-spring-bouncier)",
+          "--motion-translate-perceptual-duration-multiplier":
             springPerceptualMultipliers["var(--motion-spring-bouncier)"],
           "--motion-origin-opacity": 0,
-          "--motion-opacity-timing": "var(--motion-spring-smooth)",
-          "--motion-opacity-perceptual-duration-multiplier":
-            springPerceptualMultipliers["var(--motion-spring-smooth)"],
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-enter-animations)",
@@ -301,12 +298,9 @@ export function addPresets(addComponents, matchComponents, theme) {
   addComponents({
     ".motion-preset-bounce": {
       "--motion-duration": "300ms",
-      "--motion-timing": "var(--motion-bounce)",
-      "--motion-perceptual-duration-multiplier":
+      "--motion-translate-timing": "var(--motion-bounce)",
+      "--motion-translate-perceptual-duration-multiplier":
         springPerceptualMultipliers["var(--motion-bounce)"],
-      "--motion-opacity-timing": "var(--motion-spring-smooth)",
-      "--motion-opacity-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-smooth)"],
       "--motion-origin-opacity": 0,
       "--motion-origin-translate-y": "-25%",
       "--motion-opacity-in-animation": opacityInAnimation,
@@ -342,11 +336,9 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-scale-x": "50%",
       "--motion-origin-scale-y": "50%",
       "--motion-origin-opacity": 0,
-      "--motion-timing": "var(--motion-spring-bouncier)",
-      "--motion-perceptual-duration-multiplier": "2.035",
-      "--motion-opacity-timing": "var(--motion-spring-smooth)",
-      "--motion-opacity-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-smooth)"],
+      "--motion-scale-timing": "var(--motion-spring-bouncier)",
+      "--motion-scale-perceptual-duration-multiplier":
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-enter-animations)",
@@ -358,11 +350,9 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-scale-x": "150%",
       "--motion-origin-scale-y": "150%",
       "--motion-origin-opacity": 0,
-      "--motion-timing": "var(--motion-spring-bouncier)",
-      "--motion-perceptual-duration-multiplier": "2.035",
-      "--motion-opacity-timing": "var(--motion-spring-smooth)",
-      "--motion-opacity-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-smooth)"],
+      "--motion-scale-timing": "var(--motion-spring-bouncier)",
+      "--motion-scale-perceptual-duration-multiplier":
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-enter-animations)",
@@ -374,11 +364,9 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-duration": "300ms",
       "--motion-origin-rotate": "15deg",
       "--motion-origin-opacity": 0,
-      "--motion-timing": "var(--motion-spring-bounciest)",
-      "--motion-perceptual-duration-multiplier": "5.285",
-      "--motion-opacity-timing": "var(--motion-spring-smooth)",
-      "--motion-opacity-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-smooth)"],
+      "--motion-rotate-timing": "var(--motion-bounciest)",
+      "--motion-rotate-perceptual-duration-multiplier":
+        springPerceptualMultipliers["var(--motion-spring-bounciest)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
       animation: "var(--motion-all-enter-animations)",

@@ -110,6 +110,7 @@ export function addModifiers(matchUtilities, theme) {
           "var(--motion-spring-bouncy)",
           "var(--motion-spring-bouncier)",
           "var(--motion-spring-bounciest)",
+          "var(--motion-bounce)",
         ].includes(value);
 
         switch (modifier) {
