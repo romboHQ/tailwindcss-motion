@@ -35,7 +35,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": distance[size],
+          "--motion-origin-translate-x": `-${distance[size]}`,
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
@@ -49,14 +49,14 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
+          "--motion-origin-translate-x": distance[size],
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-enter-animations)",
         };
       },
-      "motion-preset-slide-up": (size) => {
+      "motion-preset-slide-down": (size) => {
         const distance = {
           sm: "5%",
           md: "25%",
@@ -70,7 +70,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           animation: "var(--motion-all-enter-animations)",
         };
       },
-      "motion-preset-slide-down": (size) => {
+      "motion-preset-slide-up": (size) => {
         const distance = {
           sm: "5%",
           md: "25%",
@@ -91,7 +91,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": distance[size],
+          "--motion-origin-translate-x": `-${distance[size]}`,
           "--motion-origin-translate-y": distance[size],
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
@@ -106,7 +106,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
+          "--motion-origin-translate-x": distance[size],
           "--motion-origin-translate-y": distance[size],
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
@@ -121,7 +121,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
+          "--motion-origin-translate-x": distance[size],
           "--motion-origin-translate-y": `-${distance[size]}`,
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
@@ -136,7 +136,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": distance[size],
+          "--motion-origin-translate-x": `-${distance[size]}`,
           "--motion-origin-translate-y": `-${distance[size]}`,
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
@@ -173,7 +173,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-x": distance[size],
+          "--motion-origin-translate-x": `-${distance[size]}`,
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
@@ -194,7 +194,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-x": `-${distance[size]}`,
+          "--motion-origin-translate-x": distance[size],
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
@@ -260,16 +260,16 @@ export function addPresets(addComponents, matchComponents, theme) {
       "motion-preset-rebound": (direction) => {
         const directions = {
           right: {
-            "--motion-origin-translate-x": "25%",
-          },
-          left: {
             "--motion-origin-translate-x": "-25%",
           },
+          left: {
+            "--motion-origin-translate-x": "25%",
+          },
           up: {
-            "--motion-origin-translate-y": "-25%",
+            "--motion-origin-translate-y": "25%",
           },
           down: {
-            "--motion-origin-translate-y": "25%",
+            "--motion-origin-translate-y": "-25%",
           },
         };
         return {
