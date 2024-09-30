@@ -513,7 +513,8 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   matchComponents({
     "motion-preset-typewriter": (value) => ({
-      "--motion-duration": "2000ms",
+      "--motion-duration": "10000ms",
+      "--motion-typewriter-value": `${value}ch`,
       animation: `typing var(--motion-duration) steps(${value}) infinite, blink 0.4s step-end infinite alternate`,
       whiteSpace: "nowrap",
       borderRight: "2px solid",
@@ -525,7 +526,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           width: "0",
         },
         "40%, 60%": {
-          width: `calc(${value}ch + 1px)`,
+          width: `calc(var(--motion-typewriter-value) + 1px)`,
         },
       },
       "@keyframes blink": {
