@@ -56,7 +56,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           animation: "var(--motion-all-enter-animations)",
         };
       },
-      "motion-preset-slide-down": (size) => {
+      "motion-preset-slide-up": (size) => {
         const distance = {
           sm: "5%",
           md: "25%",
@@ -70,7 +70,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           animation: "var(--motion-all-enter-animations)",
         };
       },
-      "motion-preset-slide-up": (size) => {
+      "motion-preset-slide-down": (size) => {
         const distance = {
           sm: "5%",
           md: "25%",
