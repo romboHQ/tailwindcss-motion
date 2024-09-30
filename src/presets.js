@@ -513,7 +513,7 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   matchComponents({
     "motion-preset-typewriter": (value) => ({
-      "--motion-duration": "10000ms",
+      "--motion-duration": "2000ms",
       "--motion-typewriter-value": `${value}ch`,
       animation: `typing var(--motion-duration) steps(${value}) infinite, blink 0.4s step-end infinite alternate`,
       whiteSpace: "nowrap",
@@ -521,14 +521,17 @@ export function addPresets(addComponents, matchComponents, theme) {
       fontFamily: "monospace",
       overflow: "hidden",
 
-      "@keyframes typing": {
-        "0%, 10%, 90%, 100%": {
-          width: "0",
-        },
-        "40%, 60%": {
-          width: `calc(var(--motion-typewriter-value) + 1px)`,
+      "@media screen and (prefers-reduced-motion: no-preference)": {
+        "@keyframes typing": {
+          "0%, 10%, 90%, 100%": {
+            width: "0",
+          },
+          "40%, 60%": {
+            width: `calc(var(--motion-typewriter-value) + 1px)`,
+          },
         },
       },
+
       "@keyframes blink": {
         "50%": {
           borderColor: "transparent",
@@ -561,24 +564,26 @@ export function addPresets(addComponents, matchComponents, theme) {
           paddingBottom: "6px",
         },
 
-        "@keyframes emojiAnim": {
-          "0%": {
-            transform: "translateY(-200%) rotate(60deg)",
-          },
-          "30%": {
-            transform: "rotate(50deg)",
-          },
-          "40%": {
-            transform: "rotate(55deg)",
-          },
-          "50%": {
-            transform: "rotate(45deg)",
-          },
-          "60%": {
-            transform: "rotate(40deg)",
-          },
-          "100%": {
-            transform: "translateY(-200%) rotate(25deg)",
+        "@media screen and (prefers-reduced-motion: no-preference)": {
+          "@keyframes emojiAnim": {
+            "0%": {
+              transform: "translateY(-200%) rotate(60deg)",
+            },
+            "30%": {
+              transform: "rotate(50deg)",
+            },
+            "40%": {
+              transform: "rotate(55deg)",
+            },
+            "50%": {
+              transform: "rotate(45deg)",
+            },
+            "60%": {
+              transform: "rotate(40deg)",
+            },
+            "100%": {
+              transform: "translateY(-200%) rotate(25deg)",
+            },
           },
         },
       }),
