@@ -1,5 +1,57 @@
-# Animation Utility Classes
+# ✨ [Tailwind Motion](https://rombo.co/tailwind/) ✨
 
+Tailwind Motion is a Tailwind CSS Plugin made at RomboHQ.
+It’s a simple, yet powerful, animation library with a simple syntax.
+
+Motion, without commotion.
+
+## ⚒️ Installation
+**1. Install npm package**
+
+```npm i -d tailwindcss-motion```
+
+**2. Add into your tailwind.config.js**
+
+```
+// tailwind.config.js
+
+export default {
+     theme: {
+        extend: {...}, 
+    },
+   plugins: [require('tailwindcss-motion')], 
+};
+```
+## How does it work?
+We provide a simple syntax to animate any element in your Tailwind project. Instead of defining custom keyframes, we provide utility classes to animate every dimension, inline. For example, for a slide and fade effect — you simply need `motion-translate-x-in-25 motion-opacity-in-0` or, you can use one of our presets with `motion-preset-fade`
+
+## Motion Presets
+
+The following presets are available for animations:
+
+- **Fade**: `motion-preset-fade`
+- **Slide**:
+  - Right: `motion-preset-slide-right`
+  - Left: `motion-preset-slide-left`
+  - Up: `motion-preset-slide-up`
+  - Down: `motion-preset-slide-down`
+- **Focus**: `motion-preset-focus`
+- **Blur**:
+  - Right: `motion-preset-blur-right`
+  - Left: `motion-preset-blur-left`
+  - Up: `motion-preset-blur-up`
+  - Down: `motion-preset-blur-down`
+- **Bounce**: `motion-preset-bounce`
+- **Expand**: `motion-preset-expand`
+- **Shrink**: `motion-preset-shrink`
+- **Pop**: `motion-preset-pop`
+- **Compress**: `motion-preset-compress`
+- **Shake**: `motion-preset-shake`
+- **Wiggle**: `motion-preset-wiggle`
+- **Confetti**: `motion-preset-confetti`
+- **Typewriter**: `motion-preset-typewriter-[number of characters]`
+- **Flomoji**: `motion-preset-flomoji`
+   
 ## Basic Animations
 
 Use the following utility classes to animate your components:
@@ -52,32 +104,6 @@ The plugin includes custom spring timing functions:
 - `motion-timing-spring-bouncy`
 - `motion-timing-spring-bouncier`
 
-## Motion Presets
-
-The following presets are available for animations:
-
-- **Fade**: `motion-preset-fade`
-- **Slide**:
-  - Right: `motion-preset-slide-right`
-  - Left: `motion-preset-slide-left`
-  - Up: `motion-preset-slide-up`
-  - Down: `motion-preset-slide-down`
-- **Focus**: `motion-preset-focus`
-- **Blur**:
-  - Right: `motion-preset-blur-right`
-  - Left: `motion-preset-blur-left`
-  - Up: `motion-preset-blur-up`
-  - Down: `motion-preset-blur-down`
-- **Bounce**: `motion-preset-bounce`
-- **Expand**: `motion-preset-expand`
-- **Shrink**: `motion-preset-shrink`
-- **Pop**: `motion-preset-pop`
-- **Compress**: `motion-preset-compress`
-- **Shake**: `motion-preset-shake`
-- **Wiggle**: `motion-preset-wiggle`
-- **Confetti**: `motion-preset-confetti`
-- **Typewriter**: `motion-preset-typewriter-[number of characters]`
-- **Flomoji**: `motion-preset-flomoji`
 
 ## Customizing Presets
 
