@@ -1,4 +1,5 @@
 # ✨ [Tailwind Motion](https://rombo.co/tailwind/) ✨
+![NPM Version](https://img.shields.io/npm/v/tailwindcss-motion)
 
 Tailwind Motion is a Tailwind CSS Plugin made at RomboHQ.
 It’s a simple, yet powerful, animation library with a simple syntax.
