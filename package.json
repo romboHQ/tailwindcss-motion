@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-motion",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Tailwind Motion is a Tailwind CSS Plugin made by Rombo. It’s a simple, yet powerful, animation library for Tailwind CSS.",
   "keywords": [
     "tailwindcss",
@@ -14,7 +14,7 @@
     "design"
   ],
   "author": "Rombo (https://rombo.co/)",
-  "homepage": "https://github.com/romboHQ/tailwindcss-motion",
+  "homepage": "https://rombo.co/tailwind/",
   "main": "src/index.js",
   "bugs": {
     "url": "https://github.com/romboHQ/tailwindcss-motion/issues"
