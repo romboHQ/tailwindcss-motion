@@ -166,11 +166,12 @@ a few examples are:
 
 Landing page - https://play.tailwindcss.com/uAuVF8F1vC
 
-https://github.com/user-attachments/assets/29ad6332-6a2a-4d90-be05-56236ba79eae
+![example-1](https://github.com/user-attachments/assets/c847e7ee-f5b6-4620-afdc-2f8b037c36fd)
+
 
 
 Chat dialog - https://play.tailwindcss.com/gjGqEKswjQ
 
-https://github.com/user-attachments/assets/6cfd9bb8-4942-4a76-8985-6325744f2492
 
+![example-2](https://github.com/user-attachments/assets/f11fbe59-7902-4d73-ab13-0e20ca7cc21b)
 
