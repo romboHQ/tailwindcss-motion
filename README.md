@@ -171,8 +171,15 @@ Landing page - https://play.tailwindcss.com/uAuVF8F1vC
 
 Chat dialog - https://play.tailwindcss.com/gjGqEKswjQ
 
-
 ![example-2](https://github.com/user-attachments/assets/f11fbe59-7902-4d73-ab13-0e20ca7cc21b)
+
+Low Battery Dynamic Island - https://play.tailwindcss.com/tvYFbHtNNQ
+
+![example-3](https://github.com/user-attachments/assets/5f1e67d7-5f93-46d5-badb-ab1d3d526efc)
+
+Apple Color Swatches - https://play.tailwindcss.com/cvQ3Nk3v8j
+
+![example-4](https://github.com/user-attachments/assets/887fba04-9642-4a4f-8ace-7375a4aa65b6)
 
 ## What's Rombo?
 Rombo is an early-stage company, building tools to help companies build beautiful interactive interfaces. We're starting out with a toolkit for engineers, designers and creative marketers to animate natively inside common Workflows — like Tailwind, Figma, Webflow, Shopify & more to come!
