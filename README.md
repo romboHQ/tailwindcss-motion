@@ -1,4 +1,4 @@
-# ✨ [Tailwind Motion](https://rombo.co/tailwind/) ✨
+# ✨ [Tailwind Motion](https://rombo.co/tailwind/) ✨ β
 
 ![NPM Version](https://img.shields.io/npm/v/tailwindcss-motion)
 
