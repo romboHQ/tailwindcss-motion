@@ -29,6 +29,21 @@ export default {
 };
 ```
 
+**or,** to use ESM:
+
+```js
+import tailwindcssMotion from "tailwindcss-motion";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  // * TODO: Make sure to include the `content` property as you normally would in a Tailwind config 🔧
+  theme: {
+    extend: {},
+  },
+  plugins: [tailwindcssMotion],
+};
+```
+
 ## How does it work?
 
 We provide a simple syntax to animate any element in your Tailwind project. Instead of defining custom keyframes, we provide utility classes to animate every dimension, inline.
