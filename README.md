@@ -13,7 +13,7 @@ _Motion, without commotion._
 **1. Install npm package**
 
 ```bash
-npm i -d tailwindcss-motion
+npm i -D tailwindcss-motion
 ```
 
 **2. Add into your tailwind.config.js**
