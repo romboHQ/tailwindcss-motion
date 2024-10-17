@@ -22,10 +22,11 @@ npm i -D tailwindcss-motion
 // tailwind.config.js
 
 export default {
+     content: [...],
      theme: {
         extend: {...},
-    },
-   plugins: [require('tailwindcss-motion')],
+     },
+     plugins: [require('tailwindcss-motion')],
 };
 ```
 
@@ -36,11 +37,11 @@ import tailwindcssMotion from "tailwindcss-motion";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  // * TODO: Make sure to include the `content` property as you normally would in a Tailwind config 🔧
-  theme: {
-    extend: {},
-  },
-  plugins: [tailwindcssMotion],
+     content: [...],
+     theme: {
+          extend: {},
+     },
+     plugins: [tailwindcssMotion],
 };
 ```
 
