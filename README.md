@@ -75,7 +75,9 @@ We provide a collection of presets to animate your components easily:
 - **Shake**: `motion-preset-shake`
 - **Wiggle**: `motion-preset-wiggle`
 - **Confetti**: `motion-preset-confetti`
-- **Typewriter**: `motion-preset-typewriter-[number of characters]`
+- **Typewriter**: 
+  - Infinite: `motion-preset-typewriter-infinite-[number of characters]`
+  - Animate Once: `motion-preset-typewriter-[number of characters]`
 - **Flomoji**: `motion-preset-flomoji`
 
 ### Customizing Presets
