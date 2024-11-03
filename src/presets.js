@@ -512,7 +512,7 @@ export function addPresets(addComponents, matchComponents, theme) {
   });
 
   matchComponents({
-    "motion-preset-typewriter": (value) => ({
+    "motion-preset-typewriter-infinite": (value) => ({
       "--motion-duration": "2000ms",
       "--motion-typewriter-value": `${value}ch`,
       animation: `typing var(--motion-duration) steps(${value}) infinite, blink 0.4s step-end infinite alternate`,
@@ -534,6 +534,36 @@ export function addPresets(addComponents, matchComponents, theme) {
 
       "@keyframes blink": {
         "50%": {
+          borderColor: "transparent",
+        },
+      },
+    }),
+
+    "motion-preset-typewriter": (value) => ({
+      "--motion-duration": "600ms",
+      "--motion-typewriter-value": `${value}ch`,
+      animation: `typingOnce var(--motion-duration) steps(${value}) forwards, blinkOnce calc(var(--motion-duration) + 0.4s) forwards`,
+      whiteSpace: "nowrap",
+      borderRight: "2px solid",
+      fontFamily: "monospace",
+      overflow: "hidden",
+
+      "@media screen and (prefers-reduced-motion: no-preference)": {
+        "@keyframes typingOnce": {
+          "0%": {
+            width: "0",
+          },
+          "to": {
+            width: `calc(var(--motion-typewriter-value) + 1px)`,
+          },
+        },
+      },
+
+      "@keyframes blinkOnce": {
+        "0%, 99%": {
+          borderColor: "currentColor",
+        },
+        "100%": {
           borderColor: "transparent",
         },
       },
