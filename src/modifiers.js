@@ -10,9 +10,10 @@ export const springPerceptualMultipliers = {
 
 /**
  * @param {import('tailwindcss/types/config').PluginAPI['matchUtilities']} matchUtilities
+ * @param {import('tailwindcss/types/config').PluginAPI['addUtilities']} addUtilities
  * @param {import('tailwindcss/types/config').PluginAPI['theme']} theme
  * */
-export function addModifiers(matchUtilities, theme) {
+export function addModifiers(matchUtilities, addUtilities, theme) {
   // duration
   matchUtilities(
     {
@@ -83,8 +84,7 @@ export function addModifiers(matchUtilities, theme) {
       },
     },
     {
-      // use the same values as the duration
-      values: theme("animationDuration"),
+      values: theme("animationDelay"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -193,6 +193,70 @@ export function addModifiers(matchUtilities, theme) {
       },
     }
   );
+
+  // animation play state
+  addUtilities({
+    ".motion-paused": {
+      animationPlayState: "paused",
+      "&::before": {
+        animationPlayState: "paused",
+      },
+      "&::after": {
+        animationPlayState: "paused",
+      },
+    },
+    ".motion-running": {
+      animationPlayState: "running",
+      "&::before": {
+        animationPlayState: "running",
+      },
+      "&::after": {
+        animationPlayState: "running",
+      },
+    },
+  });
+
+  // loop
+  matchUtilities(
+    {
+      "motion-loop": (value, { modifier }) => {
+        switch (modifier) {
+          case "scale":
+            return { "--motion-scale-loop-count": value };
+          case "translate":
+            return { "--motion-translate-loop-count": value };
+          case "rotate":
+            return { "--motion-rotate-loop-count": value };
+          case "blur":
+          case "grayscale":
+            return { "--motion-filter-loop-count": value };
+          case "opacity":
+            return { "--motion-opacity-loop-count": value };
+          case "background":
+            return { "--motion-background-color-loop-count": value };
+          case "text":
+            return { "--motion-text-color-loop-count": value };
+          default:
+            return {
+              "--motion-loop-count": value,
+            };
+        }
+      },
+    },
+    {
+      values: theme("animationLoopCount"),
+      modifiers: {
+        scale: "scale",
+        translate: "translate",
+        rotate: "rotate",
+        blur: "blur",
+        grayscale: "grayscale",
+        opacity: "opacity",
+        background: "background",
+        text: "text",
+      },
+    }
+  );
 }
 
 export const modifiersTheme = {
@@ -226,4 +290,12 @@ export const modifiersTheme = {
     1500: "1500ms",
     2000: "2000ms",
   }),
+  animationDelay: (theme) => ({
+    ...theme("animationDuration"),
+  }),
+  animationLoopCount: {
+    infinite: "infinite",
+    once: "1",
+    twice: "2",
+  },
 };

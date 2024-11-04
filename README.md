@@ -1,4 +1,4 @@
-# ✨ [tailwindcss-motion β](https://rombo.co/tailwind/) ✨ 
+# ✨ [tailwindcss-motion β](https://rombo.co/tailwind/) ✨
 
 [![NPM Version](https://img.shields.io/npm/v/tailwindcss-motion?color=F3FC6F)](https://www.npmjs.com/package/tailwindcss-motion)
 [![NPM Downloads](https://img.shields.io/npm/dw/tailwindcss-motion?color=F3FC6F)](https://www.npmjs.com/package/tailwindcss-motion)
@@ -55,6 +55,8 @@ For example, for a slide and fade effect — you simply need `motion-translate-x
 
 We provide a collection of presets to animate your components easily:
 
+### Enter Animation Presets
+
 - **Fade**: `motion-preset-fade`
 - **Slide**:
   - Right: `motion-preset-slide-right`
@@ -77,6 +79,17 @@ We provide a collection of presets to animate your components easily:
 - **Confetti**: `motion-preset-confetti`
 - **Typewriter**: `motion-preset-typewriter-[number of characters]`
 - **Flomoji**: `motion-preset-flomoji`
+
+### Loop Animation Presets
+
+- **Pulse**: `motion-preset-pulse`
+- **Wobble**: `motion-preset-wobble`
+- **Seesaw**: `motion-preset-seesaw`
+- **Oscillate**: `motion-preset-oscillate`
+- **Stretch**: `motion-preset-stretch`
+- **Float**: `motion-preset-float`
+- **Spin**: `motion-preset-spin`
+- **Blink**: `motion-preset-blink`
 
 ### Customizing Presets
 
@@ -133,13 +146,75 @@ You can combine multiple animations on a single element:
 
 For exit animations, simply replace `in` with `out` in the class name.
 
+## Loop Animations
+
+You can create continuous animations by adding loop variants to any base animation class. Simply replace `in` with `loop` in the class name.
+
+### Basic Loop Usage
+
+```html
+<div class="motion-translate-y-loop-25"></div>
+```
+
+### Loop Modifiers
+
+Loops support two animation styles controlled by modifiers:
+
+- `mirror` (default): Animation reverses direction when reaching the end
+- `reset`: Animation resets to starting position when reaching the end
+
+```html
+<!-- Mirror animation (default) -->
+<div class="motion-translate-y-loop-25/mirror"></div>
+
+<!-- Reset animation -->
+<div class="motion-translate-y-loop-25/reset"></div>
+```
+
+### Loop Count
+
+Control how many times the animation repeats using the `motion-loop` utility:
+
+- `motion-loop-once`: Animation repeats once
+- `motion-loop-twice`: Animation repeats twice
+- `motion-loop-infinite`: Animation repeats indefinitely (default)
+
+```html
+<!-- Infinite loop (default) -->
+<div class="motion-translate-y-loop-25"></div>
+
+<!-- Loop twice -->
+<div class="motion-translate-y-loop-25 motion-loop-twice"></div>
+
+<!-- Loop once -->
+<div class="motion-translate-y-loop-25 motion-loop-once"></div>
+```
+
+You can also target specific properties:
+
+```html
+<!-- Only loop the translation twice -->
+<div class="motion-translate-y-loop-25 motion-loop-twice/translate"></div>
+```
+
+### Combining Loop Animations
+
+Multiple loop animations can be combined:
+
+```html
+<div
+  class="motion-scale-loop-75 motion-translate-y-loop-25 motion-rotate-loop-180"
+></div>
+```
+
 ## Modifiers
 
-You can customize the duration, delay, and timing function of any animation.
+You can customize the duration, delay, timing function, and play state of any animation.
 
 - **Duration**: `motion-duration-500`
 - **Delay**: `motion-delay-500`
 - **Timing Function**: `motion-timing-spring-bouncy`
+- **Play State**: `motion-paused` or `motion-running`
 
 For example:
 
@@ -150,6 +225,18 @@ For example:
 ```
 
 This applies a duration of 2000ms to both the rotation and opacity animations.
+
+### Animation Play State
+
+You can pause and resume animations using the play state utilities:
+
+```html
+<!-- Pause the animation -->
+<div class="motion-preset-bounce motion-paused"></div>
+
+<!-- Resume the animation -->
+<div class="motion-preset-bounce motion-running"></div>
+```
 
 ### Modifiers for each property
 
@@ -198,5 +285,12 @@ Apple Color Swatches - https://play.tailwindcss.com/cvQ3Nk3v8j
 ![example-4](https://github.com/user-attachments/assets/887fba04-9642-4a4f-8ace-7375a4aa65b6)
 
 ## What's Rombo?
+
 Rombo is an early-stage company, building tools to help companies build beautiful interactive interfaces. We're starting out with a toolkit for engineers, designers and creative marketers to animate natively inside common Workflows — like Tailwind, Figma, Webflow, Shopify & more to come!
-Sign up for updates on our site at https://rombo.co
+Sign up for our waitlist at https://rombo.co/tailwind/#waitlist
+
+## More Resources
+
+- [Bringing Motion to Tailwind CSS: Building an animation plugin at Rombo](https://www.kvin.me/posts/tailwind-motion) - Blog post about the creation of this library
+- [Animator Builder](https://rombo.co/tailwind/#animator) - Create animations intuitively and export them to Tailwind classes
+- [UnoCSS port](https://github.com/whatnickcodes/unocss-preset-tailwindcss-motion) - Port created by [@whatnickcodes](https://github.com/whatnickcodes)
