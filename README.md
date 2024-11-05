@@ -288,6 +288,10 @@ Rombo Loop - https://play.tailwindcss.com/MLdegkb9Wq
 
 ![example-5](https://github.com/user-attachments/assets/7138fb7a-d622-4590-92b5-6682806797e0)
 
+Emoji Animations - https://play.tailwindcss.com/86s55I4wmC
+
+![example-6](https://github.com/user-attachments/assets/3143dc8c-99c1-4df7-8709-a52b67d2824a)
+
 
 ## What's Rombo?
 
