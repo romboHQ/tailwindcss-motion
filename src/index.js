@@ -16,9 +16,9 @@ const pluginCreator = ({
 }) => {
   addDefaults(addBase);
   addKeyframes(addUtilities);
-  addModifiers(matchUtilities, theme);
-  addBaseAnimations(matchUtilities, theme);
   addPresets(addComponents, matchComponents, theme);
+  addBaseAnimations(matchUtilities, theme);
+  addModifiers(matchUtilities, addUtilities, theme);
 };
 
 /** @type {import('tailwindcss/types/config').Config}*/

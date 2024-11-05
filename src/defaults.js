@@ -36,34 +36,47 @@ export default function addDefaults(addBase) {
     // https://github.com/tailwindlabs/tailwindcss/discussions/8747
     "@defaults tailwind-motion": {
       // enter animations origin values
-      "--motion-origin-scale-x": "1",
-      "--motion-origin-scale-y": "1",
-      "--motion-origin-translate-x": "0",
-      "--motion-origin-translate-y": "0",
-      "--motion-origin-rotate": "0",
-      "--motion-origin-blur": "0",
-      "--motion-origin-grayscale": "0",
-      "--motion-origin-opacity": "1",
+      "--motion-origin-scale-x": "100%",
+      "--motion-origin-scale-y": "100%",
+      "--motion-origin-translate-x": "0%",
+      "--motion-origin-translate-y": "0%",
+      "--motion-origin-rotate": "0deg",
+      "--motion-origin-blur": "0px",
+      "--motion-origin-grayscale": "0%",
+      "--motion-origin-opacity": "100%",
       "--motion-origin-background-color": "",
       "--motion-origin-text-color": "",
 
       // exit animations end values
-      "--motion-end-scale-x": "1",
-      "--motion-end-scale-y": "1",
-      "--motion-end-translate-x": "0",
-      "--motion-end-translate-y": "0",
-      "--motion-end-rotate": "0",
-      "--motion-end-blur": "0",
-      "--motion-end-grayscale": "0",
-      "--motion-end-opacity": "1",
+      "--motion-end-scale-x": "100%",
+      "--motion-end-scale-y": "100%",
+      "--motion-end-translate-x": "0%",
+      "--motion-end-translate-y": "0%",
+      "--motion-end-rotate": "0deg",
+      "--motion-end-blur": "0px",
+      "--motion-end-grayscale": "0%",
+      "--motion-end-opacity": "100%",
       "--motion-end-background-color": "",
       "--motion-end-text-color": "",
+
+      // loop animations values
+      "--motion-loop-scale-x": "100%",
+      "--motion-loop-scale-y": "100%",
+      "--motion-loop-translate-x": "0%",
+      "--motion-loop-translate-y": "0%",
+      "--motion-loop-rotate": "0deg",
+      "--motion-loop-blur": "0px",
+      "--motion-loop-grayscale": "0%",
+      "--motion-loop-opacity": "100%",
+      "--motion-loop-background-color": "",
+      "--motion-loop-text-color": "",
 
       // animation modifiers
       "--motion-duration": "750ms",
       "--motion-timing": "var(--motion-default-timing)",
       "--motion-perceptual-duration-multiplier": "1",
       "--motion-delay": "0ms",
+      "--motion-loop-count": "infinite",
 
       //animation modifiers for each animation
       "--motion-scale-duration": "var(--motion-duration)",
@@ -71,18 +84,21 @@ export default function addDefaults(addBase) {
       "--motion-scale-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-scale-delay": "var(--motion-delay)",
+      "--motion-scale-loop-count": "var(--motion-loop-count)",
 
       "--motion-translate-duration": "var(--motion-duration)",
       "--motion-translate-timing": "var(--motion-timing)",
       "--motion-translate-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-translate-delay": "var(--motion-delay)",
+      "--motion-translate-loop-count": "var(--motion-loop-count)",
 
       "--motion-rotate-duration": "var(--motion-duration)",
       "--motion-rotate-timing": "var(--motion-timing)",
       "--motion-rotate-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-rotate-delay": "var(--motion-delay)",
+      "--motion-rotate-loop-count": "var(--motion-loop-count)",
 
       // filter groups blur and grayscale
       "--motion-filter-duration": "var(--motion-duration)",
@@ -90,24 +106,28 @@ export default function addDefaults(addBase) {
       "--motion-filter-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-filter-delay": "var(--motion-delay)",
+      "--motion-filter-loop-count": "var(--motion-loop-count)",
 
       "--motion-opacity-duration": "var(--motion-duration)",
       "--motion-opacity-timing": "var(--motion-timing)",
       "--motion-opacity-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-opacity-delay": "var(--motion-delay)",
+      "--motion-opacity-loop-count": "var(--motion-loop-count)",
 
       "--motion-background-color-duration": "var(--motion-duration)",
       "--motion-background-color-timing": "var(--motion-timing)",
       "--motion-background-color-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-background-color-delay": "var(--motion-delay)",
+      "--motion-background-color-loop-count": "var(--motion-loop-count)",
 
       "--motion-text-color-duration": "var(--motion-duration)",
       "--motion-text-color-timing": "var(--motion-timing)",
       "--motion-text-color-perceptual-duration-multiplier":
         "var(--motion-perceptual-duration-multiplier)",
       "--motion-text-color-delay": "var(--motion-delay)",
+      "--motion-text-color-loop-count": "var(--motion-loop-count)",
 
       // default animations to none
       "--motion-scale-in-animation": "none",
@@ -126,11 +146,23 @@ export default function addDefaults(addBase) {
       "--motion-background-color-out-animation": "none",
       "--motion-text-color-out-animation": "none",
 
+      "--motion-scale-loop-animation": "none",
+      "--motion-translate-loop-animation": "none",
+      "--motion-rotate-loop-animation": "none",
+      "--motion-filter-loop-animation": "none",
+      "--motion-opacity-loop-animation": "none",
+      "--motion-background-color-loop-animation": "none",
+      "--motion-text-color-loop-animation": "none",
+
       // all animations
       "--motion-all-enter-animations":
         "var(--motion-scale-in-animation), var(--motion-translate-in-animation), var(--motion-rotate-in-animation), var(--motion-filter-in-animation), var(--motion-opacity-in-animation), var(--motion-background-color-in-animation), var(--motion-text-color-in-animation)",
       "--motion-all-exit-animations":
         "var(--motion-scale-out-animation), var(--motion-translate-out-animation), var(--motion-rotate-out-animation), var(--motion-filter-out-animation), var(--motion-opacity-out-animation), var(--motion-background-color-out-animation), var(--motion-text-color-out-animation)",
+      "--motion-all-loop-animations":
+        "var(--motion-scale-loop-animation), var(--motion-translate-loop-animation), var(--motion-rotate-loop-animation), var(--motion-filter-loop-animation), var(--motion-opacity-loop-animation), var(--motion-background-color-loop-animation), var(--motion-text-color-loop-animation)",
+      "--motion-all-loop-and-enter-animations":
+        "var(--motion-all-loop-animations), var(--motion-all-enter-animations)",
     },
   });
 }

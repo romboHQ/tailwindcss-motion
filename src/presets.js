@@ -1,9 +1,13 @@
 import {
   filterInAnimation,
   opacityInAnimation,
+  opacityLoopAnimation,
   rotateInAnimation,
+  rotateLoopAnimation,
   scaleInAnimation,
+  scaleLoopAnimation,
   translateInAnimation,
+  translateLoopAnimation,
 } from "./baseAnimations";
 import { springPerceptualMultipliers } from "./modifiers";
 
@@ -25,7 +29,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-duration": durations[size],
           "--motion-opacity-in-animation": opacityInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-right": (size) => {
@@ -39,7 +43,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-left": (size) => {
@@ -53,7 +57,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-up": (size) => {
@@ -67,7 +71,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-down": (size) => {
@@ -81,7 +85,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-up-right": (size) => {
@@ -96,7 +100,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-up-left": (size) => {
@@ -111,7 +115,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-down-left": (size) => {
@@ -126,7 +130,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-slide-down-right": (size) => {
@@ -141,7 +145,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
 
@@ -156,7 +160,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
 
@@ -178,7 +182,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-blur-left": (size) => {
@@ -199,7 +203,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-blur-up": (size) => {
@@ -220,7 +224,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
       "motion-preset-blur-down": (size) => {
@@ -241,7 +245,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
     },
@@ -280,7 +284,7 @@ export function addPresets(addComponents, matchComponents, theme) {
           "--motion-origin-opacity": 0,
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-enter-animations)",
+          animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
     },
@@ -305,7 +309,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-translate-y": "-25%",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -316,7 +320,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-opacity": 0,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -327,7 +331,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-opacity": 0,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -341,7 +345,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         springPerceptualMultipliers["var(--motion-spring-bouncier)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -355,7 +359,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         springPerceptualMultipliers["var(--motion-spring-bouncier)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -369,7 +373,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         springPerceptualMultipliers["var(--motion-spring-bounciest)"],
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -388,7 +392,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
-      animation: "var(--motion-all-enter-animations)",
+      animation: "var(--motion-all-loop-and-enter-animations)",
     },
   });
 
@@ -402,7 +406,7 @@ export function addPresets(addComponents, matchComponents, theme) {
       zIndex: "1",
       margin: "0",
       animation:
-        "RomboConfettiPop var(--motion-duration) var(--motion-timing)  both !important",
+        "RomboConfettiPop var(--motion-duration) var(--motion-timing)  both",
 
       "@keyframes RomboConfettiPop": {
         "0%": {
@@ -511,11 +515,133 @@ export function addPresets(addComponents, matchComponents, theme) {
     },
   });
 
+  matchComponents(
+    {
+      "motion-preset-pulse": (size) => {
+        const sizes = {
+          sm: "1.1",
+          md: "1.25",
+          lg: "1.5",
+        };
+        return {
+          "--motion-loop-scale-x": sizes[size],
+          "--motion-loop-scale-y": sizes[size],
+          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-wobble": (size) => {
+        const sizes = {
+          sm: "5%",
+          md: "15%",
+          lg: "25%",
+        };
+        return {
+          "--motion-loop-translate-x": sizes[size],
+          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-seesaw": (size) => {
+        const sizes = {
+          sm: "3deg",
+          md: "6deg",
+          lg: "12deg",
+        };
+        return {
+          "--motion-loop-rotate": sizes[size],
+          "--motion-rotate-loop-animation": rotateLoopAnimation("mirror"),
+          "--motion-timing": "var(--motion-spring-bounciest)",
+          "--motion-perceptual-duration-multiplier":
+            springPerceptualMultipliers["var(--motion-spring-bounciest)"],
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-oscillate": (size) => {
+        const sizes = {
+          sm: "5%",
+          md: "15%",
+          lg: "25%",
+        };
+        return {
+          "--motion-loop-translate-y": sizes[size],
+          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-stretch": (size) => {
+        const xSizes = {
+          sm: "95%",
+          md: "85%",
+          lg: "75%",
+        };
+        const ySizes = {
+          sm: "105%",
+          md: "115%",
+          lg: "125%",
+        };
+        return {
+          "--motion-loop-scale-x": xSizes[size],
+          "--motion-loop-scale-y": ySizes[size],
+          "--motion-ease": "var(--motion-spring-bouncier)",
+          "--motion-perceptual-duration-multiplier":
+            springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+          "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-float": (size) => {
+        const sizes = {
+          sm: "50%",
+          md: "100%",
+          lg: "150%",
+        };
+        return {
+          "--motion-loop-translate-y": sizes[size],
+          "--motion-ease": "var(--motion-spring-bouncier)",
+          "--motion-perceptual-duration-multiplier":
+            springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+          "--motion-duration": "2000ms",
+          "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+    },
+    {
+      values: {
+        sm: "sm",
+        md: "md",
+        lg: "lg",
+        DEFAULT: "md",
+      },
+    }
+  );
+
+  addComponents({
+    ".motion-preset-spin": {
+      "--motion-loop-rotate": "360deg",
+      "--motion-timing": "linear",
+      "--motion-rotate-loop-animation": rotateLoopAnimation("reset"),
+      animation: "var(--motion-all-loop-and-enter-animations)",
+    },
+  });
+
+  addComponents({
+    ".motion-preset-blink": {
+      "--motion-loop-opacity": 0,
+      "--motion-opacity-loop-animation": opacityLoopAnimation("mirror"),
+      animation: "var(--motion-all-loop-and-enter-animations)",
+    },
+  });
+
   matchComponents({
     "motion-preset-typewriter": (value) => ({
       "--motion-duration": "2000ms",
       "--motion-typewriter-value": `${value}ch`,
-      animation: `typing var(--motion-duration) steps(${value}) infinite, blink 0.4s step-end infinite alternate`,
+      animation: `typing var(--motion-duration) steps(${value}) var(--motion-loop-count), blink 0.4s step-end infinite alternate`,
       whiteSpace: "nowrap",
       borderRight: "2px solid",
       fontFamily: "monospace",
@@ -523,7 +649,7 @@ export function addPresets(addComponents, matchComponents, theme) {
 
       "@media screen and (prefers-reduced-motion: no-preference)": {
         "@keyframes typing": {
-          "0%, 10%, 90%, 100%": {
+          "10%, 90%": {
             width: "0",
           },
           "40%, 60%": {
