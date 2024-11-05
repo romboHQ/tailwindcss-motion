@@ -284,6 +284,11 @@ Apple Color Swatches - https://play.tailwindcss.com/cvQ3Nk3v8j
 
 ![example-4](https://github.com/user-attachments/assets/887fba04-9642-4a4f-8ace-7375a4aa65b6)
 
+Rombo Loop - https://play.tailwindcss.com/MLdegkb9Wq
+
+![example-5](https://github.com/user-attachments/assets/7138fb7a-d622-4590-92b5-6682806797e0)
+
+
 ## What's Rombo?
 
 Rombo is an early-stage company, building tools to help companies build beautiful interactive interfaces. We're starting out with a toolkit for engineers, designers and creative marketers to animate natively inside common Workflows — like Tailwind, Figma, Webflow, Shopify & more to come!
