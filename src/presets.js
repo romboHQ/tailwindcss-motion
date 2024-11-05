@@ -526,7 +526,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         return {
           "--motion-loop-scale-x": sizes[size],
           "--motion-loop-scale-y": sizes[size],
-          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
@@ -539,7 +539,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           "--motion-loop-translate-x": sizes[size],
-          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
@@ -553,8 +553,8 @@ export function addPresets(addComponents, matchComponents, theme) {
         return {
           "--motion-loop-rotate": sizes[size],
           "--motion-rotate-loop-animation": rotateLoopAnimation("mirror"),
-          "--motion-timing": "var(--motion-spring-bounciest)",
-          "--motion-perceptual-duration-multiplier":
+          "--motion-rotate-timing": "var(--motion-spring-bounciest)",
+          "--motion-rotate-perceptual-duration-multiplier":
             springPerceptualMultipliers["var(--motion-spring-bounciest)"],
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
@@ -567,7 +567,7 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           "--motion-loop-translate-y": sizes[size],
-          "--motion-ease": "cubic-bezier(0.4, 0, 0.2, 1)",
+          "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
@@ -586,8 +586,8 @@ export function addPresets(addComponents, matchComponents, theme) {
         return {
           "--motion-loop-scale-x": xSizes[size],
           "--motion-loop-scale-y": ySizes[size],
-          "--motion-ease": "var(--motion-spring-bouncier)",
-          "--motion-perceptual-duration-multiplier":
+          "--motion-scale-timing": "var(--motion-spring-bouncier)",
+          "--motion-scale-perceptual-duration-multiplier":
             springPerceptualMultipliers["var(--motion-spring-bouncier)"],
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
@@ -601,8 +601,8 @@ export function addPresets(addComponents, matchComponents, theme) {
         };
         return {
           "--motion-loop-translate-y": sizes[size],
-          "--motion-ease": "var(--motion-spring-bouncier)",
-          "--motion-perceptual-duration-multiplier":
+          "--motion-translate-timing": "var(--motion-spring-bouncier)",
+          "--motion-translate-perceptual-duration-multiplier":
             springPerceptualMultipliers["var(--motion-spring-bouncier)"],
           "--motion-duration": "2000ms",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
