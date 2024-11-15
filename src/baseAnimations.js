@@ -350,7 +350,7 @@ export function addBaseAnimations(matchUtilities, theme) {
     {
       "motion-opacity-loop": (value, { modifier }) => ({
         // we need to subtract 1 because of animation composition
-        "--motion-loop-opacity": `${Number(value) - 1}`,
+        "--motion-loop-opacity": `calc(${value} - 1)`,
         "--motion-opacity-loop-animation": opacityLoopAnimation(
           modifier || "mirror"
         ),
