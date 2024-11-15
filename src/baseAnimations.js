@@ -349,11 +349,12 @@ export function addBaseAnimations(matchUtilities, theme) {
   matchUtilities(
     {
       "motion-opacity-loop": (value, { modifier }) => ({
-        "--motion-loop-opacity": value,
+        // we need to subtract 1 because of animation composition
+        "--motion-loop-opacity": `${Number(value) - 1}`,
         "--motion-opacity-loop-animation": opacityLoopAnimation(
           modifier || "mirror"
         ),
-        // no animation composition because it makes opacity not work
+        animationComposition: "accumulate",
         animation: "var(--motion-all-loop-and-enter-animations)",
       }),
     },
