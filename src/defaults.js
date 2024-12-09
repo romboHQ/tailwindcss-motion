@@ -34,7 +34,7 @@ export default function addDefaults(addBase) {
     // an issue and a discussion about this:
     // https://github.com/tailwindlabs/tailwindcss/issues/10514#issuecomment-1420879057
     // https://github.com/tailwindlabs/tailwindcss/discussions/8747
-    "@defaults tailwind-motion": {
+    "*": {
       // enter animations origin values
       "--motion-origin-scale-x": "100%",
       "--motion-origin-scale-y": "100%",
@@ -72,7 +72,7 @@ export default function addDefaults(addBase) {
       "--motion-loop-text-color": "",
 
       // animation modifiers
-      "--motion-duration": "750ms",
+      "--motion-duration": "700ms",
       "--motion-timing": "var(--motion-default-timing)",
       "--motion-perceptual-duration-multiplier": "1",
       "--motion-delay": "0ms",

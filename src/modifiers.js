@@ -42,7 +42,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
       },
     },
     {
-      values: theme("animationDuration"),
+      values: theme("motionDuration"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -84,7 +84,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
       },
     },
     {
-      values: theme("animationDelay"),
+      values: theme("motionLoopCount"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -180,7 +180,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
       },
     },
     {
-      values: theme("animationTimingFunction"),
+      values: theme("motionTimingFunction"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -244,7 +244,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
       },
     },
     {
-      values: theme("animationLoopCount"),
+      values: theme("motionLoopCount"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -260,7 +260,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
 }
 
 export const modifiersTheme = {
-  animationTimingFunction: (theme) => ({
+  motionTimingFunction: (theme) => ({
     ...theme("transitionTimingFunction"),
     "spring-smooth": "var(--motion-spring-smooth)",
     "spring-snappy": "var(--motion-spring-snappy)",
@@ -285,15 +285,15 @@ export const modifiersTheme = {
     "in-out-quart": "cubic-bezier(.77, 0, .175, 1)",
     "in-out-back": "cubic-bezier(0.68,-0.55,0.27,1.55)",
   }),
-  animationDuration: (theme) => ({
+  motionDuration: (theme) => ({
     ...theme("transitionDuration"),
     1500: "1500ms",
     2000: "2000ms",
   }),
-  animationDelay: (theme) => ({
-    ...theme("animationDuration"),
+  motionLoopCount: (theme) => ({
+    ...theme("motionDuration"),
   }),
-  animationLoopCount: {
+  motionLoopCount: {
     infinite: "infinite",
     once: "1",
     twice: "2",

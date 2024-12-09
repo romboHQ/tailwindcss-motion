@@ -1,7 +1,7 @@
-/** @param {import('tailwindcss/types/config').PluginAPI['addUtilities']} addUtilities */
-export default function addKeyframes(addUtilities) {
+/** @param {import('tailwindcss/types/config').PluginAPI['addBase']} addBase */
+export default function addKeyframes(addBase) {
   // keyframes for the animations
-  addUtilities({
+  addBase({
     // if the user prefers reduced motion, don't apply the transform animations
     "@media screen and (prefers-reduced-motion: no-preference)": {
       "@keyframes motion-scale-in": {

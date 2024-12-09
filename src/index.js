@@ -15,7 +15,7 @@ const pluginCreator = ({
   matchComponents,
 }) => {
   addDefaults(addBase);
-  addKeyframes(addUtilities);
+  addKeyframes(addBase);
   addPresets(addComponents, matchComponents, theme);
   addBaseAnimations(matchUtilities, theme);
   addModifiers(matchUtilities, addUtilities, theme);
