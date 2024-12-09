@@ -84,7 +84,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
       },
     },
     {
-      values: theme("motionLoopCount"),
+      values: theme("motionDelay"),
       modifiers: {
         scale: "scale",
         translate: "translate",
@@ -289,9 +289,11 @@ export const modifiersTheme = {
     ...theme("transitionDuration"),
     1500: "1500ms",
     2000: "2000ms",
+    DEFAULT: "750ms",
   }),
-  motionLoopCount: (theme) => ({
+  motionDelay: (theme) => ({
     ...theme("motionDuration"),
+    DEFAULT: "0ms",
   }),
   motionLoopCount: {
     infinite: "infinite",
