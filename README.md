@@ -54,6 +54,19 @@ For example, for a slide and fade effect — you simply need `motion-translate-x
 
 For full documentation, visit [docs.rombo.co/tailwind](https://docs.rombo.co/tailwind)
 
+
+## 🧩 Introducing the Chrome Extension
+Take your animations to the next level with the [Rombo Chrome Extension](https://rombo.co/extension/)!
+
+Create animations visually: 
+- Use our intuitive animator directly in your browser.
+- Loop animations
+- Save presets: Keep your animations organized and reusable.
+- Export options: Output animations as Tailwind classes, pure CSS, or Framer Motion code.
+
+![extension](https://github.com/user-attachments/assets/68a751f7-00a5-449e-a92d-f5499d3b9152)
+
+
 ## Examples
 
 Landing page - https://play.tailwindcss.com/uAuVF8F1vC
@@ -84,7 +97,6 @@ Emoji Animations - https://play.tailwindcss.com/86s55I4wmC
 ## What's Rombo?
 
 Rombo is an early-stage company, building tools to help companies build beautiful interactive interfaces. We're starting out with a toolkit for engineers, designers and creative marketers to animate natively inside common Workflows — like Tailwind, Figma, Webflow, Shopify & more to come!
-Sign up for our waitlist at https://rombo.co/tailwind/#waitlist
 
 ## More Resources
 
