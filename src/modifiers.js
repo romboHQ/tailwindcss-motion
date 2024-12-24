@@ -1,4 +1,3 @@
-// Define spring types and their corresponding perceptual duration multipliers
 export const springPerceptualMultipliers = {
   "var(--motion-spring-smooth)": "1.66",
   "var(--motion-spring-snappy)": "1.66",
@@ -95,6 +94,21 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
         background: "background",
         text: "text",
       },
+    }
+  );
+
+  // stagger
+  matchUtilities(
+    {
+      "motion-stagger": (value, { modifier }) => {
+        const staggerValue = parseFloat(value);
+        return {
+          "--motion-stagger-delay": `calc(var(--motion-stagger-index, 0) * ${staggerValue}ms)`,
+        };
+      },
+    },
+    {
+      values: theme("motionStagger"),
     }
   );
 
@@ -295,6 +309,13 @@ export const modifiersTheme = {
     ...theme("motionDuration"),
     DEFAULT: "0ms",
   }),
+  motionStagger: {
+    100: "100",
+    200: "200",
+    300: "300",
+    400: "400",
+    500: "500",
+  },
   motionLoopCount: {
     infinite: "infinite",
     once: "1",

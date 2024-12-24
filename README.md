@@ -50,10 +50,26 @@ export default {
 We provide a simple syntax to animate any element in your Tailwind project. Instead of defining custom keyframes, we provide utility classes to animate every dimension, inline.
 
 For example, for a slide and fade effect — you simply need `motion-translate-x-in-25 motion-opacity-in-0` or, you can use one of our presets with `motion-preset-fade`
+
 ## Documentation
 
 For full documentation, visit [docs.rombo.co/tailwind](https://docs.rombo.co/tailwind)
 
+### Staggered Animations
+
+The `motion-stagger` utility allows you to create staggered animations with incremental delays for multiple elements. This utility is useful for animating list or grid items with a smooth staggered effect.
+
+**Usage:**
+
+```html
+<ul class="motion-stagger-100">
+  <li class="motion-opacity-in-0">Item 1</li>
+  <li class="motion-opacity-in-0">Item 2</li>
+  <li class="motion-opacity-in-0">Item 3</li>
+</ul>
+```
+
+In the example above, each list item will have an incremental delay of 100ms, creating a staggered animation effect.
 
 ## 🧩 Introducing the Chrome Extension
 Take your animations to the next level with the [Rombo Chrome Extension](https://rombo.co/extension/)!
