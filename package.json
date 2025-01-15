@@ -19,7 +19,9 @@
   "bugs": {
     "url": "https://github.com/romboHQ/tailwindcss-motion/issues"
   },
-  "scripts": {},
+  "scripts": {
+    "tsc": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romboHQ/tailwindcss-motion.git"
@@ -30,7 +32,9 @@
   ],
   "type": "module",
   "devDependencies": {
-    "tailwindcss": "^3.4.12"
+    "@types/node": "^22.10.6",
+    "tailwindcss": "^3.4.12",
+    "typescript": "^5.7.3"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0 || insiders"
