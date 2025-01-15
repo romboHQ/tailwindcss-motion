@@ -22,8 +22,10 @@
     "lib": ["es2022", "dom", "dom.iterable"],
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "*": ["node_modules/*"]
+      "*": ["node_modules/*"],
+      "@/types/*": ["src/types/*"]
     }
   },
-  "exclude": ["web"]
+  "exclude": ["web"],
+  "include": ["src/**/*.ts", "src/types/*.d.ts"]
 }
