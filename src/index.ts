@@ -1,28 +1,31 @@
-import createPlugin from "tailwindcss/plugin";
-import addKeyframes from "./keyframes";
-import addDefaults from "./defaults";
-import { addBaseAnimations, baseAnimationsTheme } from "./baseAnimations";
-import { addModifiers, modifiersTheme } from "./modifiers";
-import { addPresets } from "./presets";
+import createPlugin from "tailwindcss/plugin.js";
+import type {
+  Config,
+  PluginAPI,
+  PluginCreator,
+} from "tailwindcss/types/config.js";
+import { addBaseAnimations, baseAnimationsTheme } from "./baseAnimations.js";
+import addDefaults from "./defaults.js";
+import addKeyframes from "./keyframes.js";
+import { addModifiers, modifiersTheme } from "./modifiers.js";
+import { addPresets } from "./presets.js";
 
-/** @type {import('tailwindcss/types/config').PluginCreator} */
-const pluginCreator = ({
+const pluginCreator: PluginCreator = ({
   matchUtilities,
   theme,
   addBase,
   addUtilities,
   addComponents,
   matchComponents,
-}) => {
+}: PluginAPI) => {
   addDefaults(addBase);
   addKeyframes(addBase);
-  addPresets(addComponents, matchComponents, theme);
+  addPresets(addComponents, matchComponents);
   addBaseAnimations(matchUtilities, theme);
   addModifiers(matchUtilities, addUtilities, theme);
 };
 
-/** @type {import('tailwindcss/types/config').Config}*/
-const pluginConfig = {
+const pluginConfig: Partial<Config> = {
   theme: {
     ...modifiersTheme,
     ...baseAnimationsTheme,

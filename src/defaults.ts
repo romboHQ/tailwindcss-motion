@@ -1,5 +1,6 @@
-/** @param {import('tailwindcss/types/config').PluginAPI['addBase']} addBase*/
-export default function addDefaults(addBase) {
+import type { PluginAPI } from "tailwindcss/types/config.js";
+
+export default function addDefaults(addBase: PluginAPI["addBase"]) {
   // default values for the motion variables
   addBase({
     ":root": {

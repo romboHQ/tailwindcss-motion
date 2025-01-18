@@ -1,5 +1,15 @@
+import type { CSSRuleObject, PluginAPI } from "tailwindcss/types/config.js";
+
+type SpringMultipliers = {
+  [key: string]: string;
+};
+
+type UtilityOptions = {
+  modifier: string | null;
+};
+
 // Define spring types and their corresponding perceptual duration multipliers
-export const springPerceptualMultipliers = {
+export const springPerceptualMultipliers: SpringMultipliers = {
   "var(--motion-spring-smooth)": "1.66",
   "var(--motion-spring-snappy)": "1.66",
   "var(--motion-spring-bouncy)": "1.66",
@@ -8,19 +18,18 @@ export const springPerceptualMultipliers = {
   "var(--motion-bounce)": "2",
 };
 
-/**
- * @param {import('tailwindcss/types/config').PluginAPI['matchUtilities']} matchUtilities
- * @param {import('tailwindcss/types/config').PluginAPI['addUtilities']} addUtilities
- * @param {import('tailwindcss/types/config').PluginAPI['theme']} theme
- * */
-export function addModifiers(matchUtilities, addUtilities, theme) {
+export function addModifiers(
+  matchUtilities: PluginAPI["matchUtilities"],
+  addUtilities: PluginAPI["addUtilities"],
+  theme: PluginAPI["theme"]
+) {
   // duration
   matchUtilities(
     {
-      "motion-duration": (value, { modifier }) => {
+      "motion-duration": (value: string, { modifier }: UtilityOptions) => {
         switch (modifier) {
           case "scale":
-            return { "--motion-scale-duration": value };
+            return { "--motion-scale-duration": value } as CSSRuleObject;
           case "translate":
             return { "--motion-translate-duration": value };
           case "rotate":
@@ -59,10 +68,10 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
   // delay
   matchUtilities(
     {
-      "motion-delay": (value, { modifier }) => {
+      "motion-delay": (value: string, { modifier }: UtilityOptions) => {
         switch (modifier) {
           case "scale":
-            return { "--motion-scale-delay": value };
+            return { "--motion-scale-delay": value } as CSSRuleObject;
           case "translate":
             return { "--motion-translate-delay": value };
           case "rotate":
@@ -101,7 +110,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
   // ease
   matchUtilities(
     {
-      "motion-ease": (value, { modifier }) => {
+      "motion-ease": (value: string, { modifier }: UtilityOptions) => {
         // if the ease isn't a spring, the multiplier doesn't change anything
         const perceptualDurationMultiplier =
           springPerceptualMultipliers[value] || 1;
@@ -118,7 +127,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
             return {
               "--motion-scale-timing": value,
               "--motion-scale-perceptual-duration-multiplier": `${perceptualDurationMultiplier}`,
-            };
+            } as CSSRuleObject;
           case "translate":
             return {
               "--motion-translate-timing": value,
@@ -219,10 +228,10 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
   // loop
   matchUtilities(
     {
-      "motion-loop": (value, { modifier }) => {
+      "motion-loop": (value: string, { modifier }: UtilityOptions) => {
         switch (modifier) {
           case "scale":
-            return { "--motion-scale-loop-count": value };
+            return { "--motion-scale-loop-count": value } as CSSRuleObject;
           case "translate":
             return { "--motion-translate-loop-count": value };
           case "rotate":
@@ -260,7 +269,7 @@ export function addModifiers(matchUtilities, addUtilities, theme) {
 }
 
 export const modifiersTheme = {
-  motionTimingFunction: (theme) => ({
+  motionTimingFunction: (theme: PluginAPI["theme"]) => ({
     ...theme("transitionTimingFunction"),
     "spring-smooth": "var(--motion-spring-smooth)",
     "spring-snappy": "var(--motion-spring-snappy)",
@@ -285,13 +294,13 @@ export const modifiersTheme = {
     "in-out-quart": "cubic-bezier(.77, 0, .175, 1)",
     "in-out-back": "cubic-bezier(0.68,-0.55,0.27,1.55)",
   }),
-  motionDuration: (theme) => ({
+  motionDuration: (theme: PluginAPI["theme"]) => ({
     ...theme("transitionDuration"),
     1500: "1500ms",
     2000: "2000ms",
     DEFAULT: "750ms",
   }),
-  motionDelay: (theme) => ({
+  motionDelay: (theme: PluginAPI["theme"]) => ({
     ...theme("motionDuration"),
     DEFAULT: "0ms",
   }),
