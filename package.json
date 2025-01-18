@@ -16,11 +16,21 @@
   "author": "Rombo (https://rombo.co/)",
   "homepage": "https://rombo.co/tailwind/",
   "main": "src/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "bugs": {
     "url": "https://github.com/romboHQ/tailwindcss-motion/issues"
   },
   "scripts": {
-    "tsc": "tsc"
+    "typecheck": "tsc",
+    "build": "tsc --project tsconfig.build.json",
+    "prepublishOnly": "pnpm run build"
   },
   "repository": {
     "type": "git",
@@ -28,6 +38,7 @@
   },
   "license": "MIT",
   "files": [
+    "dist/",
     "src/"
   ],
   "type": "module",
