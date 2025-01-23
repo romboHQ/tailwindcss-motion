@@ -1,25 +1,48 @@
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js";
 import type { Config, PluginAPI } from "tailwindcss/types/config.js";
 
+type ThemeConfig = {
+  blur: Record<string, string>;
+  colors: Record<string, string>;
+  grayscale: Record<string, string>;
+  motionBackgroundColor: Record<string, string>;
+  motionBlur: Record<string, string>;
+  motionGrayscale: Record<string, string>;
+  motionOpacity: Record<string, string>;
+  motionRotate: Record<string, string>;
+  motionScale: Record<string, string>;
+  motionTextColor: Record<string, string>;
+  motionTranslate: Record<string, string>;
+  opacity: Record<string, string>;
+  rotate: Record<string, string>;
+  scale: Record<string, string>;
+};
+
 // animation strings
 export const scaleInAnimation =
   "motion-scale-in calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+
 export const scaleOutAnimation =
   "motion-scale-out calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+
 export const scaleLoopAnimation = (type: string) =>
   `motion-scale-loop-${type} calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both var(--motion-scale-loop-count)`;
 
 export const translateInAnimation =
   "motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+
 export const translateOutAnimation =
   "motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+
 export const translateLoopAnimation = (type: string) =>
   `motion-translate-loop-${type} calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both var(--motion-translate-loop-count)`;
 
 export const rotateInAnimation =
   "motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+
 export const rotateOutAnimation =
   "motion-rotate-out calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+
 export const rotateLoopAnimation = (type: string) =>
   `motion-rotate-loop-${type} calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both var(--motion-rotate-loop-count)`;
 
@@ -27,33 +50,40 @@ export const filterInAnimation =
   "motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
 export const filterOutAnimation =
   "motion-filter-out calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
+
 export const filterLoopAnimation = (type: string) =>
   `motion-filter-loop-${type} calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both var(--motion-filter-loop-count)`;
 
 export const opacityInAnimation =
   "motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+
 export const opacityOutAnimation =
   "motion-opacity-out calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+
 export const opacityLoopAnimation = (type: string) =>
   `motion-opacity-loop-${type} calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both var(--motion-opacity-loop-count)`;
 
 export const backgroundColorInAnimation =
   "motion-background-color-in calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+
 export const backgroundColorOutAnimation =
   "motion-background-color-out calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+
 export const backgroundColorLoopAnimation = (type: string) =>
   `motion-background-color-loop-${type} calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both var(--motion-background-color-loop-count)`;
 
 export const textColorInAnimation =
   "motion-text-color-in calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+
 export const textColorOutAnimation =
   "motion-text-color-out calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+
 export const textColorLoopAnimation = (type: string) =>
   `motion-text-color-loop-${type} calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both var(--motion-text-color-loop-count)`;
 
 export function addBaseAnimations(
   matchUtilities: PluginAPI["matchUtilities"],
-  theme: PluginAPI["theme"]
+  theme: (path: keyof ThemeConfig) => Record<string, string>
 ) {
   // scale
   matchUtilities(
@@ -454,7 +484,9 @@ export function addBaseAnimations(
 }
 
 export const baseAnimationsTheme: Config["theme"] = {
-  motionScale: (theme: PluginAPI["theme"]) => ({
+  motionScale: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("scale"),
     DEFAULT: "50%",
   }),
@@ -467,19 +499,28 @@ export const baseAnimationsTheme: Config["theme"] = {
     "150": "150%",
     DEFAULT: "25%",
   },
-  motionRotate: (theme: PluginAPI["theme"]) => ({
+  motionRotate: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("rotate"),
     DEFAULT: "12deg",
   }),
-  motionBlur: (theme: PluginAPI["theme"]) => theme("blur"),
-  motionGrayscale: (theme: PluginAPI["theme"]) => theme("grayscale"),
-  motionOpacity: (theme: PluginAPI["theme"]) => ({
+  motionBlur: (theme: (path: keyof ThemeConfig) => Record<string, string>) =>
+    theme("blur"),
+  motionGrayscale: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => theme("grayscale"),
+  motionOpacity: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("opacity"),
     DEFAULT: "0",
     "0": "0.001",
   }),
-  motionBackgroundColor: (theme: PluginAPI["theme"]) =>
-    flattenColorPalette(theme("colors")),
-  motionTextColor: (theme: PluginAPI["theme"]) =>
-    flattenColorPalette(theme("colors")),
+  motionBackgroundColor: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => flattenColorPalette(theme("colors")),
+  motionTextColor: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => flattenColorPalette(theme("colors")),
 } as const;

@@ -4,6 +4,15 @@ type SpringMultipliers = {
   [key: string]: string;
 };
 
+type ThemeConfig = {
+  motionDelay: Record<string, string>;
+  motionDuration: Record<string, string>;
+  motionLoopCount: Record<string, string>;
+  motionTimingFunction: Record<string, string>;
+  transitionDuration: Record<string, string>;
+  transitionTimingFunction: Record<string, string>;
+};
+
 type UtilityOptions = {
   modifier: string | null;
 };
@@ -21,7 +30,7 @@ export const springPerceptualMultipliers: SpringMultipliers = {
 export function addModifiers(
   matchUtilities: PluginAPI["matchUtilities"],
   addUtilities: PluginAPI["addUtilities"],
-  theme: PluginAPI["theme"]
+  theme: (path: keyof ThemeConfig) => Record<string, string>
 ) {
   // duration
   matchUtilities(
@@ -269,7 +278,9 @@ export function addModifiers(
 }
 
 export const modifiersTheme = {
-  motionTimingFunction: (theme: PluginAPI["theme"]) => ({
+  motionTimingFunction: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("transitionTimingFunction"),
     "spring-smooth": "var(--motion-spring-smooth)",
     "spring-snappy": "var(--motion-spring-snappy)",
@@ -294,13 +305,17 @@ export const modifiersTheme = {
     "in-out-quart": "cubic-bezier(.77, 0, .175, 1)",
     "in-out-back": "cubic-bezier(0.68,-0.55,0.27,1.55)",
   }),
-  motionDuration: (theme: PluginAPI["theme"]) => ({
+  motionDuration: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("transitionDuration"),
     1500: "1500ms",
     2000: "2000ms",
     DEFAULT: "750ms",
   }),
-  motionDelay: (theme: PluginAPI["theme"]) => ({
+  motionDelay: (
+    theme: (path: keyof ThemeConfig) => Record<string, string>
+  ) => ({
     ...theme("motionDuration"),
     DEFAULT: "0ms",
   }),

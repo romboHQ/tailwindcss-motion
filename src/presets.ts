@@ -14,13 +14,18 @@ import { springPerceptualMultipliers } from "./modifiers.js";
 
 type Direction = "right" | "left" | "up" | "down";
 
+type PresetThemeConfig = {
+  addComponents: PluginAPI["addComponents"];
+  matchComponents: PluginAPI["matchComponents"];
+};
+
 type Size = "sm" | "md" | "lg";
 
 const DEFAULT_MULTIPLIER = "1";
 
 export function addPresets(
-  addComponents: PluginAPI["addComponents"],
-  matchComponents: PluginAPI["matchComponents"]
+  addComponents: PresetThemeConfig["addComponents"],
+  matchComponents: PresetThemeConfig["matchComponents"]
 ) {
   matchComponents(
     {
