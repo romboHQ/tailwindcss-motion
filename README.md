@@ -45,27 +45,51 @@ export default {
 };
 ```
 
+## 📝 TypeScript Support
+
+The plugin includes TypeScript definitions out of the box. Theme customizations and plugin configuration are fully typed:
+
+```ts
+import type { Config } from "tailwindcss";
+import motion from "tailwindcss-motion";
+
+const config: Config = {
+  theme: {
+    extend: {
+      motionScale: {
+        "200": "200%",
+      },
+      motionTimingFunction: {
+        custom: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
+    },
+  },
+  plugins: [motion],
+};
+```
+
 ## How does it work?
 
 We provide a simple syntax to animate any element in your Tailwind project. Instead of defining custom keyframes, we provide utility classes to animate every dimension, inline.
 
 For example, for a slide and fade effect — you simply need `motion-translate-x-in-25 motion-opacity-in-0` or, you can use one of our presets with `motion-preset-fade`
+
 ## Documentation
 
 For full documentation, visit [docs.rombo.co/tailwind](https://docs.rombo.co/tailwind)
 
-
 ## 🧩 Introducing the Chrome Extension
+
 Take your animations to the next level with the [Rombo Chrome Extension](https://rombo.co/extension/)!
 
-Create animations visually: 
+Create animations visually:
+
 - Use our intuitive animator directly in your browser.
 - Loop animations
 - Save presets: Keep your animations organized and reusable.
 - Export options: Output animations as Tailwind classes, pure CSS, or Framer Motion code.
 
 ![extension](https://github.com/user-attachments/assets/68a751f7-00a5-449e-a92d-f5499d3b9152)
-
 
 ## Examples
 
@@ -92,7 +116,6 @@ Rombo Loop - https://play.tailwindcss.com/MLdegkb9Wq
 Emoji Animations - https://play.tailwindcss.com/86s55I4wmC
 
 ![example-6](https://github.com/user-attachments/assets/3143dc8c-99c1-4df7-8709-a52b67d2824a)
-
 
 ## What's Rombo?
 
