@@ -15,13 +15,13 @@
   ],
   "author": "Rombo (https://rombo.co/)",
   "homepage": "https://rombo.co/tailwind/",
-  "main": "dist/cjs/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/esm/index.d.ts",
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "bugs": {
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "typecheck": "tsc",
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsup",
     "prepublishOnly": "pnpm run build",
     "prepare": "pnpm run build"
   },
