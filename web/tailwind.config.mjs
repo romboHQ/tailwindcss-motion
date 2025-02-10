@@ -1,4 +1,4 @@
-import tailwindMotion from "../src/index.js";
+import tailwindMotion from "../dist/index";
 
 /** @type {import('tailwindcss').Config} */
 export default {
