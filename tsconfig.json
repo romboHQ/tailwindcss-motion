@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    /* For bundler usage */
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
+    /* We're using tsup for building */
+    "noEmit": true,
+
+    /* DOM since we're a Tailwind plugin */
+    "lib": ["es2022", "dom", "dom.iterable"]
+  },
+  "exclude": ["web", "dist"],
+  "include": ["src/**/*.ts", "src/types/*.d.ts"]
+}

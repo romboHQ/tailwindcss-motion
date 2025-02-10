@@ -1,3 +1,4 @@
+import type { PluginAPI } from "tailwindcss/types/config.js";
 import {
   filterInAnimation,
   opacityInAnimation,
@@ -8,163 +9,172 @@ import {
   scaleLoopAnimation,
   translateInAnimation,
   translateLoopAnimation,
-} from "./baseAnimations";
-import { springPerceptualMultipliers } from "./modifiers";
+} from "./baseAnimations.js";
+import { springPerceptualMultipliers } from "./modifiers.js";
 
-/**
- * @param {import('tailwindcss/types/config').PluginAPI['addComponents']} addComponents
- * @param {import('tailwindcss/types/config').PluginAPI['matchComponents']} matchComponents
- * @param {import('tailwindcss/types/config').PluginAPI['theme']} theme
- * */
-export function addPresets(addComponents, matchComponents, theme) {
+type Direction = "right" | "left" | "up" | "down";
+
+type PresetThemeConfig = {
+  addComponents: PluginAPI["addComponents"];
+  matchComponents: PluginAPI["matchComponents"];
+};
+
+type Size = "sm" | "md" | "lg";
+
+const DEFAULT_MULTIPLIER = "1";
+
+export function addPresets(
+  addComponents: PresetThemeConfig["addComponents"],
+  matchComponents: PresetThemeConfig["matchComponents"]
+) {
   matchComponents(
     {
-      "motion-preset-fade": (size) => {
+      "motion-preset-fade": (size: string) => {
         const durations = {
           sm: "300ms",
           md: "500ms",
           lg: "800ms",
         };
         return {
-          "--motion-origin-opacity": 0,
-          "--motion-duration": durations[size],
+          "--motion-origin-opacity": "0",
+          "--motion-duration": durations[size as Size],
           "--motion-opacity-in-animation": opacityInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-right": (size) => {
+      "motion-preset-slide-right": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
-          "--motion-opacity-in-animation": opacityInAnimation,
-          "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
-        };
-      },
-      "motion-preset-slide-left": (size) => {
-        const distance = {
-          sm: "5%",
-          md: "25%",
-          lg: "100%",
-        };
-        return {
-          "--motion-origin-translate-x": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-x": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-up": (size) => {
+      "motion-preset-slide-left": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-y": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-x": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-down": (size) => {
+      "motion-preset-slide-up": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-y": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-y": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-up-right": (size) => {
+      "motion-preset-slide-down": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
-          "--motion-origin-translate-y": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-y": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-up-left": (size) => {
+      "motion-preset-slide-up-right": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": distance[size],
-          "--motion-origin-translate-y": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-x": `-${distance[size as Size]}`,
+          "--motion-origin-translate-y": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-down-left": (size) => {
+      "motion-preset-slide-up-left": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": distance[size],
-          "--motion-origin-translate-y": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-x": distance[size as Size],
+          "--motion-origin-translate-y": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-slide-down-right": (size) => {
+      "motion-preset-slide-down-left": (size: string) => {
         const distance = {
           sm: "5%",
           md: "25%",
           lg: "100%",
         };
         return {
-          "--motion-origin-translate-x": `-${distance[size]}`,
-          "--motion-origin-translate-y": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
+          "--motion-origin-translate-x": distance[size as Size],
+          "--motion-origin-translate-y": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
+          "--motion-opacity-in-animation": opacityInAnimation,
+          "--motion-translate-in-animation": translateInAnimation,
+          animation: "var(--motion-all-loop-and-enter-animations)",
+        };
+      },
+      "motion-preset-slide-down-right": (size: string) => {
+        const distance = {
+          sm: "5%",
+          md: "25%",
+          lg: "100%",
+        };
+        return {
+          "--motion-origin-translate-x": `-${distance[size as Size]}`,
+          "--motion-origin-translate-y": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
 
-      "motion-preset-focus": (size) => {
+      "motion-preset-focus": (size: string) => {
         const blurSizes = {
           sm: "1.25px",
           md: "5px",
           lg: "10px",
         };
         return {
-          "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-blur": blurSizes[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
 
-      "motion-preset-blur-right": (size) => {
+      "motion-preset-blur-right": (size: string) => {
         const blurSizes = {
           sm: "1.25px",
           md: "5px",
@@ -176,16 +186,16 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "25%",
         };
         return {
-          "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-x": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
+          "--motion-origin-blur": blurSizes[size as Size],
+          "--motion-origin-translate-x": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-blur-left": (size) => {
+      "motion-preset-blur-left": (size: string) => {
         const blurSizes = {
           sm: "1.25px",
           md: "5px",
@@ -197,16 +207,16 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "25%",
         };
         return {
-          "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-x": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-blur": blurSizes[size as Size],
+          "--motion-origin-translate-x": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-blur-up": (size) => {
+      "motion-preset-blur-up": (size: string) => {
         const blurSizes = {
           sm: "1.25px",
           md: "5px",
@@ -218,16 +228,16 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "25%",
         };
         return {
-          "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-y": distance[size],
-          "--motion-origin-opacity": 0,
+          "--motion-origin-blur": blurSizes[size as Size],
+          "--motion-origin-translate-y": distance[size as Size],
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-blur-down": (size) => {
+      "motion-preset-blur-down": (size: string) => {
         const blurSizes = {
           sm: "1.25px",
           md: "5px",
@@ -239,9 +249,9 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "25%",
         };
         return {
-          "--motion-origin-blur": blurSizes[size],
-          "--motion-origin-translate-y": `-${distance[size]}`,
-          "--motion-origin-opacity": 0,
+          "--motion-origin-blur": blurSizes[size as Size],
+          "--motion-origin-translate-y": `-${distance[size as Size]}`,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
@@ -261,7 +271,7 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   matchComponents(
     {
-      "motion-preset-rebound": (direction) => {
+      "motion-preset-rebound": (direction: string) => {
         const directions = {
           right: {
             "--motion-origin-translate-x": "-25%",
@@ -277,11 +287,12 @@ export function addPresets(addComponents, matchComponents, theme) {
           },
         };
         return {
-          ...directions[direction],
+          ...directions[direction as Direction],
           "--motion-translate-timing": "var(--motion-spring-bouncier)",
           "--motion-translate-perceptual-duration-multiplier":
-            springPerceptualMultipliers["var(--motion-spring-bouncier)"],
-          "--motion-origin-opacity": 0,
+            springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+            DEFAULT_MULTIPLIER,
+          "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
           animation: "var(--motion-all-loop-and-enter-animations)",
@@ -304,8 +315,9 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-duration": "300ms",
       "--motion-translate-timing": "var(--motion-bounce)",
       "--motion-translate-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-bounce)"],
-      "--motion-origin-opacity": 0,
+        springPerceptualMultipliers["var(--motion-bounce)"] ??
+        DEFAULT_MULTIPLIER,
+      "--motion-origin-opacity": "0",
       "--motion-origin-translate-y": "-25%",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
@@ -317,7 +329,7 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-expand": {
       "--motion-origin-scale-x": "50%",
       "--motion-origin-scale-y": "50%",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-loop-and-enter-animations)",
@@ -328,7 +340,7 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-shrink": {
       "--motion-origin-scale-x": "150%",
       "--motion-origin-scale-y": "150%",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-loop-and-enter-animations)",
@@ -339,10 +351,11 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-pop": {
       "--motion-origin-scale-x": "50%",
       "--motion-origin-scale-y": "50%",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-scale-timing": "var(--motion-spring-bouncier)",
       "--motion-scale-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+        DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-loop-and-enter-animations)",
@@ -353,10 +366,11 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-compress": {
       "--motion-origin-scale-x": "150%",
       "--motion-origin-scale-y": "150%",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-scale-timing": "var(--motion-spring-bouncier)",
       "--motion-scale-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+        DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
       animation: "var(--motion-all-loop-and-enter-animations)",
@@ -367,10 +381,11 @@ export function addPresets(addComponents, matchComponents, theme) {
     ".motion-preset-shake": {
       "--motion-duration": "300ms",
       "--motion-origin-rotate": "15deg",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-rotate-timing": "var(--motion-spring-bounciest)",
       "--motion-rotate-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-bounciest)"],
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+        DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
       animation: "var(--motion-all-loop-and-enter-animations)",
@@ -383,12 +398,13 @@ export function addPresets(addComponents, matchComponents, theme) {
       "--motion-origin-rotate": "15deg",
       "--motion-origin-translate-x": "-25%",
       "--motion-origin-translate-y": "-10%",
-      "--motion-origin-opacity": 0,
+      "--motion-origin-opacity": "0",
       "--motion-timing": "var(--motion-spring-bounciest)",
       "--motion-perceptual-duration-multiplier": "5.285",
       "--motion-opacity-timing": "var(--motion-spring-smooth)",
       "--motion-opacity-perceptual-duration-multiplier":
-        springPerceptualMultipliers["var(--motion-spring-smooth)"],
+        springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+        DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
@@ -441,7 +457,6 @@ export function addPresets(addComponents, matchComponents, theme) {
         animationIterationCount: "1",
         animationDirection: "normal",
         animationFillMode: "forwards",
-
         animationName: "bottomfetti",
         position: "absolute",
         content: '" "',
@@ -456,7 +471,6 @@ export function addPresets(addComponents, matchComponents, theme) {
           "radial-gradient(circle, #a2dd60 20%, transparent 20%),radial-gradient(circle, transparent 20%, #ee65a9 20%, transparent 30%),radial-gradient(circle, #6092dd 20%, transparent 20%),radial-gradient(circle, #f3c548 20%, transparent 20%),radial-gradient(circle, transparent 10%, #46ec99 15%, transparent 20%),radial-gradient(circle, #f03e47 20%, transparent 20%),radial-gradient(circle, #7b4df7 20%, transparent 20%),radial-gradient(circle, #3ff1bc 20%, transparent 20%)",
         backgroundSize:
           "15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%",
-        zIndex: "-1",
       },
       "&:before": {
         display: "block",
@@ -465,7 +479,6 @@ export function addPresets(addComponents, matchComponents, theme) {
         animationIterationCount: "1",
         animationDirection: "normal",
         animationFillMode: "forwards",
-
         animationName: "topfetti",
         position: "absolute",
         content: '" "',
@@ -480,7 +493,6 @@ export function addPresets(addComponents, matchComponents, theme) {
           "radial-gradient(circle, #a2dd60 30%, transparent 20%),radial-gradient(circle, transparent 20%, #ee65a9 40%, transparent 20%),radial-gradient(circle, #6092dd 30%, transparent 20%),radial-gradient(circle, #f3c548 30%, transparent 20%),radial-gradient(circle, transparent 10%, #46ec99 15%, transparent 20%),radial-gradient(circle, #f03e47 30%, transparent 20%),radial-gradient(circle, #7b4df7 30%, transparent 30%),radial-gradient(circle, #3ff1bc 30%, transparent 20%),radial-gradient(circle, #48f088 30%, transparent 30%)",
         backgroundSize:
           "10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 25% 25%",
-        zIndex: "-1",
       },
       "@keyframes topfetti": {
         "0%": {
@@ -517,62 +529,63 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   matchComponents(
     {
-      "motion-preset-pulse": (size) => {
+      "motion-preset-pulse": (size: string) => {
         const sizes = {
           sm: "1.1",
           md: "1.25",
           lg: "1.5",
         };
         return {
-          "--motion-loop-scale-x": sizes[size],
-          "--motion-loop-scale-y": sizes[size],
+          "--motion-loop-scale-x": sizes[size as Size],
+          "--motion-loop-scale-y": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-wobble": (size) => {
+      "motion-preset-wobble": (size: string) => {
         const sizes = {
           sm: "5%",
           md: "15%",
           lg: "25%",
         };
         return {
-          "--motion-loop-translate-x": sizes[size],
+          "--motion-loop-translate-x": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-seesaw": (size) => {
+      "motion-preset-seesaw": (size: string) => {
         const sizes = {
           sm: "3deg",
           md: "6deg",
           lg: "12deg",
         };
         return {
-          "--motion-loop-rotate": sizes[size],
+          "--motion-loop-rotate": sizes[size as Size],
           "--motion-rotate-loop-animation": rotateLoopAnimation("mirror"),
           "--motion-rotate-timing": "var(--motion-spring-bounciest)",
           "--motion-rotate-perceptual-duration-multiplier":
-            springPerceptualMultipliers["var(--motion-spring-bounciest)"],
+            springPerceptualMultipliers["var(--motion-spring-bounciest)"] ??
+            DEFAULT_MULTIPLIER,
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-oscillate": (size) => {
+      "motion-preset-oscillate": (size: string) => {
         const sizes = {
           sm: "5%",
           md: "15%",
           lg: "25%",
         };
         return {
-          "--motion-loop-translate-y": sizes[size],
+          "--motion-loop-translate-y": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-stretch": (size) => {
+      "motion-preset-stretch": (size: string) => {
         const xSizes = {
           sm: "95%",
           md: "85%",
@@ -584,26 +597,28 @@ export function addPresets(addComponents, matchComponents, theme) {
           lg: "125%",
         };
         return {
-          "--motion-loop-scale-x": xSizes[size],
-          "--motion-loop-scale-y": ySizes[size],
+          "--motion-loop-scale-x": xSizes[size as Size],
+          "--motion-loop-scale-y": ySizes[size as Size],
           "--motion-scale-timing": "var(--motion-spring-bouncier)",
           "--motion-scale-perceptual-duration-multiplier":
-            springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+            springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+            DEFAULT_MULTIPLIER,
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
         };
       },
-      "motion-preset-float": (size) => {
+      "motion-preset-float": (size: string) => {
         const sizes = {
           sm: "50%",
           md: "100%",
           lg: "150%",
         };
         return {
-          "--motion-loop-translate-y": sizes[size],
+          "--motion-loop-translate-y": sizes[size as Size],
           "--motion-translate-timing": "var(--motion-spring-bouncier)",
           "--motion-translate-perceptual-duration-multiplier":
-            springPerceptualMultipliers["var(--motion-spring-bouncier)"],
+            springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
+            DEFAULT_MULTIPLIER,
           "--motion-duration": "2000ms",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
           animation: "var(--motion-all-loop-and-enter-animations)",
@@ -631,7 +646,7 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   addComponents({
     ".motion-preset-blink": {
-      "--motion-loop-opacity": 0,
+      "--motion-loop-opacity": "0",
       "--motion-opacity-loop-animation": opacityLoopAnimation("mirror"),
       animation: "var(--motion-all-loop-and-enter-animations)",
     },
@@ -668,7 +683,7 @@ export function addPresets(addComponents, matchComponents, theme) {
 
   matchComponents(
     {
-      "motion-preset-flomoji": (value) => ({
+      "motion-preset-flomoji": (value: string) => ({
         position: "relative",
         "&:before": {
           content: `"${value}"`,
@@ -676,9 +691,8 @@ export function addPresets(addComponents, matchComponents, theme) {
             "emojiAnim 3000ms infinite cubic-bezier(0, 0.2, 0.2, 1) both",
           top: "0px",
           left: "0px",
-          display: "block",
           position: "absolute",
-          zIndex: 1000,
+          zIndex: "1000",
           background: "rgba(255,255,255,0.3)",
           width: "2rem",
           height: "2rem",

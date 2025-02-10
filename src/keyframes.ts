@@ -1,5 +1,6 @@
-/** @param {import('tailwindcss/types/config').PluginAPI['addBase']} addBase */
-export default function addKeyframes(addBase) {
+import type { PluginAPI } from "tailwindcss/types/config.js";
+
+export default function addKeyframes(addBase: PluginAPI["addBase"]) {
   // keyframes for the animations
   addBase({
     // if the user prefers reduced motion, don't apply the transform animations
