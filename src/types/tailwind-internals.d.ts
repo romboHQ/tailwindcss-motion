@@ -1,5 +1,5 @@
 // src/types/tailwind-internals.d.ts
-declare module "tailwindcss/lib/util/flattenColorPalette.js" {
+declare module "tailwindcss/lib/util/flattenColorPalette" {
   type ColorValue = string | { [key: string]: string };
   type NestedColors = {
     [key: string]: ColorValue | NestedColors;

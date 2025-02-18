@@ -1,4 +1,4 @@
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js";
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import type { Config, PluginAPI } from "tailwindcss/types/config.js";
 
 type ThemeConfig = {
