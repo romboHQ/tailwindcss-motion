@@ -18,68 +18,79 @@ type ThemeConfig = {
   scale: Record<string, string>;
 };
 
+const allEnterAnimations =
+  "var(--motion-scale-in-animation), var(--motion-translate-in-animation), var(--motion-rotate-in-animation), var(--motion-filter-in-animation), var(--motion-opacity-in-animation), var(--motion-background-color-in-animation), var(--motion-text-color-in-animation)";
+
+const allExitAnimations =
+  "var(--motion-scale-out-animation), var(--motion-translate-out-animation), var(--motion-rotate-out-animation), var(--motion-filter-out-animation), var(--motion-opacity-out-animation), var(--motion-background-color-out-animation), var(--motion-text-color-out-animation)";
+
+const allLoopAnimations =
+  "var(--motion-scale-loop-animation), var(--motion-translate-loop-animation), var(--motion-rotate-loop-animation), var(--motion-filter-loop-animation), var(--motion-opacity-loop-animation), var(--motion-background-color-loop-animation), var(--motion-text-color-loop-animation)";
+
+const allLoopAndEnterAnimations = `${allEnterAnimations}, ${allLoopAnimations}`;
+
 // animation strings
 export const scaleInAnimation =
-  "motion-scale-in calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+  "motion-scale-in calc(var(--motion-scale-duration, var(--motion-duration)) * var(--motion-scale-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-scale-timing, var(--motion-timing)) var(--motion-scale-delay, var(--motion-delay)) both";
 
 export const scaleOutAnimation =
-  "motion-scale-out calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both";
+  "motion-scale-out calc(var(--motion-scale-duration, var(--motion-duration)) * var(--motion-scale-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-scale-timing, var(--motion-timing)) var(--motion-scale-delay, var(--motion-delay)) both";
 
 export const scaleLoopAnimation = (type: string) =>
-  `motion-scale-loop-${type} calc(var(--motion-scale-duration) * var(--motion-scale-perceptual-duration-multiplier)) var(--motion-scale-timing) var(--motion-scale-delay) both var(--motion-scale-loop-count)`;
+  `motion-scale-loop-${type} calc(var(--motion-scale-duration, var(--motion-duration)) * var(--motion-scale-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-scale-timing, var(--motion-timing)) var(--motion-scale-delay, var(--motion-delay)) both var(--motion-scale-loop-count, var(--motion-loop-count))`;
 
 export const translateInAnimation =
-  "motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+  "motion-translate-in calc(var(--motion-translate-duration, var(--motion-duration)) * var(--motion-translate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-translate-timing, var(--motion-timing)) var(--motion-translate-delay, var(--motion-delay)) both";
 
 export const translateOutAnimation =
-  "motion-translate-out calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both";
+  "motion-translate-out calc(var(--motion-translate-duration, var(--motion-duration)) * var(--motion-translate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-translate-timing, var(--motion-timing)) var(--motion-translate-delay, var(--motion-delay)) both";
 
 export const translateLoopAnimation = (type: string) =>
-  `motion-translate-loop-${type} calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both var(--motion-translate-loop-count)`;
+  `motion-translate-loop-${type} calc(var(--motion-translate-duration, var(--motion-duration)) * var(--motion-translate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-translate-timing, var(--motion-timing)) var(--motion-translate-delay, var(--motion-delay)) both var(--motion-translate-loop-count, var(--motion-loop-count))`;
 
 export const rotateInAnimation =
-  "motion-rotate-in calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+  "motion-rotate-in calc(var(--motion-rotate-duration, var(--motion-duration)) * var(--motion-rotate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-rotate-timing, var(--motion-timing)) var(--motion-rotate-delay, var(--motion-delay)) both";
 
 export const rotateOutAnimation =
-  "motion-rotate-out calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both";
+  "motion-rotate-out calc(var(--motion-rotate-duration, var(--motion-duration)) * var(--motion-rotate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-rotate-timing, var(--motion-timing)) var(--motion-rotate-delay, var(--motion-delay)) both";
 
 export const rotateLoopAnimation = (type: string) =>
-  `motion-rotate-loop-${type} calc(var(--motion-rotate-duration) * var(--motion-rotate-perceptual-duration-multiplier)) var(--motion-rotate-timing) var(--motion-rotate-delay) both var(--motion-rotate-loop-count)`;
+  `motion-rotate-loop-${type} calc(var(--motion-rotate-duration, var(--motion-duration)) * var(--motion-rotate-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-rotate-timing, var(--motion-timing)) var(--motion-rotate-delay, var(--motion-delay)) both var(--motion-rotate-loop-count, var(--motion-loop-count))`;
 
 export const filterInAnimation =
-  "motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
+  "motion-filter-in calc(var(--motion-filter-duration, var(--motion-duration)) * var(--motion-filter-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-filter-timing, var(--motion-timing)) var(--motion-filter-delay, var(--motion-delay)) both";
 export const filterOutAnimation =
-  "motion-filter-out calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both";
+  "motion-filter-out calc(var(--motion-filter-duration, var(--motion-duration)) * var(--motion-filter-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-filter-timing, var(--motion-timing)) var(--motion-filter-delay, var(--motion-delay)) both";
 
 export const filterLoopAnimation = (type: string) =>
-  `motion-filter-loop-${type} calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both var(--motion-filter-loop-count)`;
+  `motion-filter-loop-${type} calc(var(--motion-filter-duration, var(--motion-duration)) * var(--motion-filter-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-filter-timing, var(--motion-timing)) var(--motion-filter-delay, var(--motion-delay)) both var(--motion-filter-loop-count, var(--motion-loop-count))`;
 
 export const opacityInAnimation =
-  "motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+  "motion-opacity-in calc(var(--motion-opacity-duration, var(--motion-duration)) * var(--motion-opacity-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-opacity-timing, var(--motion-timing)) var(--motion-opacity-delay, var(--motion-delay)) both";
 
 export const opacityOutAnimation =
-  "motion-opacity-out calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both";
+  "motion-opacity-out calc(var(--motion-opacity-duration, var(--motion-duration)) * var(--motion-opacity-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-opacity-timing, var(--motion-timing)) var(--motion-opacity-delay, var(--motion-delay)) both";
 
 export const opacityLoopAnimation = (type: string) =>
-  `motion-opacity-loop-${type} calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both var(--motion-opacity-loop-count)`;
+  `motion-opacity-loop-${type} calc(var(--motion-opacity-duration, var(--motion-duration)) * var(--motion-opacity-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-opacity-timing, var(--motion-timing)) var(--motion-opacity-delay, var(--motion-delay)) both var(--motion-opacity-loop-count, var(--motion-loop-count))`;
 
 export const backgroundColorInAnimation =
-  "motion-background-color-in calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+  "motion-background-color-in calc(var(--motion-background-color-duration, var(--motion-duration)) * var(--motion-background-color-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-background-color-timing, var(--motion-timing)) var(--motion-background-color-delay, var(--motion-delay)) both";
 
 export const backgroundColorOutAnimation =
-  "motion-background-color-out calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both";
+  "motion-background-color-out calc(var(--motion-background-color-duration, var(--motion-duration)) * var(--motion-background-color-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-background-color-timing, var(--motion-timing)) var(--motion-background-color-delay, var(--motion-delay)) both";
 
 export const backgroundColorLoopAnimation = (type: string) =>
-  `motion-background-color-loop-${type} calc(var(--motion-background-color-duration) * var(--motion-background-color-perceptual-duration-multiplier)) var(--motion-background-color-timing) var(--motion-background-color-delay) both var(--motion-background-color-loop-count)`;
+  `motion-background-color-loop-${type} calc(var(--motion-background-color-duration, var(--motion-duration)) * var(--motion-background-color-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-background-color-timing, var(--motion-timing)) var(--motion-background-color-delay, var(--motion-delay)) both var(--motion-background-color-loop-count, var(--motion-loop-count))`;
 
 export const textColorInAnimation =
-  "motion-text-color-in calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+  "motion-text-color-in calc(var(--motion-text-color-duration, var(--motion-duration)) * var(--motion-text-color-perceptual-duration-multiplier, var(--motion-perceptual-duration-multiplier))) var(--motion-text-color-timing, var(--motion-timing)) var(--motion-text-color-delay, var(--motion-delay)) both";
 
 export const textColorOutAnimation =
-  "motion-text-color-out calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both";
+  "motion-text-color-out calc(var(--motion-text-color-duration, --motion-duration) * var(--motion-text-color-perceptual-duration-multiplier, --motion-perceptual-duration-multiplier)) var(--motion-text-color-timing, --motion-timing) var(--motion-text-color-delay, --motion-delay) both";
 
 export const textColorLoopAnimation = (type: string) =>
-  `motion-text-color-loop-${type} calc(var(--motion-text-color-duration) * var(--motion-text-color-perceptual-duration-multiplier)) var(--motion-text-color-timing) var(--motion-text-color-delay) both var(--motion-text-color-loop-count)`;
+  `motion-text-color-loop-${type} calc(var(--motion-text-color-duration, --motion-duration) * var(--motion-text-color-perceptual-duration-multiplier, --motion-perceptual-duration-multiplier)) var(--motion-text-color-timing, --motion-timing) var(--motion-text-color-delay, --motion-delay) both var(--motion-text-color-loop-count, --motion-loop-count)`;
 
 export function addBaseAnimations(
   matchUtilities: PluginAPI["matchUtilities"],
@@ -92,34 +103,34 @@ export function addBaseAnimations(
         "--motion-origin-scale-x": value,
         "--motion-origin-scale-y": value,
         "--motion-scale-in-animation": scaleInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
       "motion-scale-x-in": (value) => ({
         "--motion-origin-scale-x": value,
         "--motion-scale-in-animation": scaleInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
       "motion-scale-y-in": (value) => ({
         "--motion-origin-scale-y": value,
         "--motion-scale-in-animation": scaleInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-scale-out": (value) => ({
         "--motion-end-scale-x": value,
         "--motion-end-scale-y": value,
         "--motion-scale-out-animation": scaleOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
       "motion-scale-x-out": (value) => ({
         "--motion-end-scale-x": value,
         "--motion-scale-out-animation": scaleOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
       "motion-scale-y-out": (value) => ({
         "--motion-end-scale-y": value,
         "--motion-scale-out-animation": scaleOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -136,7 +147,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
       "motion-scale-y-loop": (value, { modifier }) => ({
         "--motion-loop-scale-y": value,
@@ -144,7 +155,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
       "motion-scale-loop": (value, { modifier }) => ({
         "--motion-loop-scale-x": value,
@@ -153,7 +164,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
@@ -171,23 +182,23 @@ export function addBaseAnimations(
       "motion-translate-x-in": (value) => ({
         "--motion-origin-translate-x": value,
         "--motion-translate-in-animation": translateInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
       "motion-translate-y-in": (value) => ({
         "--motion-origin-translate-y": value,
         "--motion-translate-in-animation": translateInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-translate-x-out": (value) => ({
         "--motion-end-translate-x": value,
         "--motion-translate-out-animation": translateOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
       "motion-translate-y-out": (value) => ({
         "--motion-end-translate-y": value,
         "--motion-translate-out-animation": translateOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -206,7 +217,7 @@ export function addBaseAnimations(
             modifier || "mirror"
           ),
           animationComposition: "accumulate",
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-translate-y-loop": (value, { modifier }) => {
@@ -216,7 +227,7 @@ export function addBaseAnimations(
             modifier || "mirror"
           ),
           animationComposition: "accumulate",
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
     },
@@ -236,13 +247,13 @@ export function addBaseAnimations(
       "motion-rotate-in": (value) => ({
         "--motion-origin-rotate": value,
         "--motion-rotate-in-animation": rotateInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-rotate-out": (value) => ({
         "--motion-end-rotate": value,
         "--motion-rotate-out-animation": rotateOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -260,7 +271,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
@@ -279,13 +290,13 @@ export function addBaseAnimations(
       "motion-blur-in": (value) => ({
         "--motion-origin-blur": value,
         "--motion-filter-in-animation": filterInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-blur-out": (value) => ({
         "--motion-end-blur": value,
         "--motion-filter-out-animation": filterOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -302,7 +313,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
@@ -320,13 +331,13 @@ export function addBaseAnimations(
       "motion-grayscale-in": (value) => ({
         "--motion-origin-grayscale": value,
         "--motion-filter-in-animation": filterInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-grayscale-out": (value) => ({
         "--motion-end-grayscale": value,
         "--motion-filter-out-animation": filterOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -361,13 +372,13 @@ export function addBaseAnimations(
       "motion-opacity-in": (value) => ({
         "--motion-origin-opacity": value,
         "--motion-opacity-in-animation": opacityInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-opacity-out": (value) => ({
         "--motion-end-opacity": value,
         "--motion-opacity-out-animation": opacityOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -385,7 +396,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
@@ -403,13 +414,13 @@ export function addBaseAnimations(
       "motion-bg-in": (value) => ({
         "--motion-origin-background-color": value,
         "--motion-background-color-in-animation": backgroundColorInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-bg-out": (value) => ({
         "--motion-end-background-color": value,
         "--motion-background-color-out-animation": backgroundColorOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -426,7 +437,7 @@ export function addBaseAnimations(
         "--motion-background-color-loop-animation":
           backgroundColorLoopAnimation(modifier || "mirror"),
         // no animation composition because it makes colors add
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
@@ -445,13 +456,13 @@ export function addBaseAnimations(
       "motion-text-in": (value) => ({
         "--motion-origin-text-color": value,
         "--motion-text-color-in-animation": textColorInAnimation,
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
 
       "motion-text-out": (value) => ({
         "--motion-end-text-color": value,
         "--motion-text-color-out-animation": textColorOutAnimation,
-        animation: "var(--motion-all-exit-animations)",
+        animation: allExitAnimations,
       }),
     },
     {
@@ -469,7 +480,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
