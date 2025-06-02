@@ -18,16 +18,16 @@ type ThemeConfig = {
   scale: Record<string, string>;
 };
 
-const allEnterAnimations =
+export const allEnterAnimations =
   "var(--motion-scale-in-animation), var(--motion-translate-in-animation), var(--motion-rotate-in-animation), var(--motion-filter-in-animation), var(--motion-opacity-in-animation), var(--motion-background-color-in-animation), var(--motion-text-color-in-animation)";
 
-const allExitAnimations =
+export const allExitAnimations =
   "var(--motion-scale-out-animation), var(--motion-translate-out-animation), var(--motion-rotate-out-animation), var(--motion-filter-out-animation), var(--motion-opacity-out-animation), var(--motion-background-color-out-animation), var(--motion-text-color-out-animation)";
 
-const allLoopAnimations =
+export const allLoopAnimations =
   "var(--motion-scale-loop-animation), var(--motion-translate-loop-animation), var(--motion-rotate-loop-animation), var(--motion-filter-loop-animation), var(--motion-opacity-loop-animation), var(--motion-background-color-loop-animation), var(--motion-text-color-loop-animation)";
 
-const allLoopAndEnterAnimations = `${allEnterAnimations}, ${allLoopAnimations}`;
+export const allLoopAndEnterAnimations = `${allEnterAnimations}, ${allLoopAnimations}`;
 
 // animation strings
 export const scaleInAnimation =
@@ -354,7 +354,7 @@ export function addBaseAnimations(
           modifier || "mirror"
         ),
         animationComposition: "accumulate",
-        animation: "var(--motion-all-loop-and-enter-animations)",
+        animation: allLoopAndEnterAnimations,
       }),
     },
     {
