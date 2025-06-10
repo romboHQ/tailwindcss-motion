@@ -9,6 +9,7 @@ import {
   scaleLoopAnimation,
   translateInAnimation,
   translateLoopAnimation,
+  allLoopAndEnterAnimations,
 } from "./baseAnimations.js";
 import { springPerceptualMultipliers } from "./modifiers.js";
 
@@ -39,7 +40,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-duration": durations[size as Size],
           "--motion-opacity-in-animation": opacityInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-right": (size: string) => {
@@ -53,7 +54,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-left": (size: string) => {
@@ -67,7 +68,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-up": (size: string) => {
@@ -81,7 +82,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-down": (size: string) => {
@@ -95,7 +96,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-up-right": (size: string) => {
@@ -110,7 +111,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-up-left": (size: string) => {
@@ -125,7 +126,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-down-left": (size: string) => {
@@ -140,7 +141,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-slide-down-right": (size: string) => {
@@ -155,7 +156,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
 
@@ -170,7 +171,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
 
@@ -192,7 +193,7 @@ export function addPresets(
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-blur-left": (size: string) => {
@@ -213,7 +214,7 @@ export function addPresets(
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-blur-up": (size: string) => {
@@ -234,7 +235,7 @@ export function addPresets(
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-blur-down": (size: string) => {
@@ -255,7 +256,7 @@ export function addPresets(
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-filter-in-animation": filterInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
     },
@@ -295,7 +296,7 @@ export function addPresets(
           "--motion-origin-opacity": "0",
           "--motion-opacity-in-animation": opacityInAnimation,
           "--motion-translate-in-animation": translateInAnimation,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
     },
@@ -321,7 +322,7 @@ export function addPresets(
       "--motion-origin-translate-y": "-25%",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -332,7 +333,7 @@ export function addPresets(
       "--motion-origin-opacity": "0",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -343,7 +344,7 @@ export function addPresets(
       "--motion-origin-opacity": "0",
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -358,7 +359,7 @@ export function addPresets(
         DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -373,7 +374,7 @@ export function addPresets(
         DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-scale-in-animation": scaleInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -388,7 +389,7 @@ export function addPresets(
         DEFAULT_MULTIPLIER,
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -408,7 +409,7 @@ export function addPresets(
       "--motion-opacity-in-animation": opacityInAnimation,
       "--motion-rotate-in-animation": rotateInAnimation,
       "--motion-translate-in-animation": translateInAnimation,
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -540,7 +541,7 @@ export function addPresets(
           "--motion-loop-scale-y": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-wobble": (size: string) => {
@@ -553,7 +554,7 @@ export function addPresets(
           "--motion-loop-translate-x": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-seesaw": (size: string) => {
@@ -569,7 +570,7 @@ export function addPresets(
           "--motion-rotate-perceptual-duration-multiplier":
             springPerceptualMultipliers["var(--motion-spring-bounciest)"] ??
             DEFAULT_MULTIPLIER,
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-oscillate": (size: string) => {
@@ -582,7 +583,7 @@ export function addPresets(
           "--motion-loop-translate-y": sizes[size as Size],
           "--motion-timing": "cubic-bezier(0.4, 0, 0.2, 1)",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-stretch": (size: string) => {
@@ -604,7 +605,7 @@ export function addPresets(
             springPerceptualMultipliers["var(--motion-spring-bouncier)"] ??
             DEFAULT_MULTIPLIER,
           "--motion-scale-loop-animation": scaleLoopAnimation("mirror"),
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
       "motion-preset-float": (size: string) => {
@@ -621,7 +622,7 @@ export function addPresets(
             DEFAULT_MULTIPLIER,
           "--motion-duration": "2000ms",
           "--motion-translate-loop-animation": translateLoopAnimation("mirror"),
-          animation: "var(--motion-all-loop-and-enter-animations)",
+          animation: allLoopAndEnterAnimations,
         };
       },
     },
@@ -640,7 +641,7 @@ export function addPresets(
       "--motion-loop-rotate": "360deg",
       "--motion-timing": "linear",
       "--motion-rotate-loop-animation": rotateLoopAnimation("reset"),
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
@@ -648,7 +649,7 @@ export function addPresets(
     ".motion-preset-blink": {
       "--motion-loop-opacity": "0",
       "--motion-opacity-loop-animation": opacityLoopAnimation("mirror"),
-      animation: "var(--motion-all-loop-and-enter-animations)",
+      animation: allLoopAndEnterAnimations,
     },
   });
 
