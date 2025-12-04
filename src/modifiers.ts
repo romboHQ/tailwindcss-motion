@@ -234,6 +234,46 @@ export function addModifiers(
     },
   });
 
+  // animation direction
+  addUtilities({
+    ".motion-direction-normal": {
+      animationDirection: "normal",
+      "&::before": {
+        animationDirection: "normal",
+      },
+      "&::after": {
+        animationDirection: "normal",
+      },
+    },
+    ".motion-direction-reverse": {
+      animationDirection: "reverse",
+      "&::before": {
+        animationDirection: "reverse",
+      },
+      "&::after": {
+        animationDirection: "reverse",
+      },
+    },
+    ".motion-direction-alternate": {
+      animationDirection: "alternate",
+      "&::before": {
+        animationDirection: "alternate",
+      },
+      "&::after": {
+        animationDirection: "alternate",
+      },
+    },
+    ".motion-direction-alternate-reverse": {
+      animationDirection: "alternate-reverse",
+      "&::before": {
+        animationDirection: "alternate-reverse",
+      },
+      "&::after": {
+        animationDirection: "alternate-reverse",
+      },
+    },
+  });
+
   // loop
   matchUtilities(
     {
